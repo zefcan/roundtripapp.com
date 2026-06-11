@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roundtrip — Official Learner Logbook App</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+body{
+  --ff:'Inter',Helvetica,'Helvetica Neue',Arial,sans-serif;
+  --bg:#ffffff;
+  --bg2:#f5f5f5;
+  --acc:#f5c400;
+  --acc2:#c49000;
+  --txt:#0a0a0a;
+  --txt2:#666666;
+  --txt3:#999999;
+  --bdr:rgba(0,0,0,0.07);
+  --card-shadow:0 2px 4px rgba(0,0,0,0.04),0 8px 28px rgba(0,0,0,0.07);
+  --phone-border:#1c1c1e;
+  --navbg:rgba(255,255,255,0.92);
+  background:var(--bg);
+  color:var(--txt);
+  font-family:var(--ff);
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* ── NSW BANNER ── */
+.banner{
+  background:var(--acc);color:#0a0a0a;
+  text-align:center;padding:11px 20px;
+  font-size:13px;font-weight:500;
+}
+.banner a{color:#0a0a0a;font-weight:700;text-decoration:none;}
+.banner a:hover{text-decoration:underline;}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--navbg);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr);
+  padding:0 52px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-mark{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--acc);display:flex;align-items:center;
+  justify-content:center;font-weight:900;font-size:16px;
+  color:#0a0a0a;letter-spacing:-1px;flex-shrink:0;
+}
+.logo-name{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.5px;}
+.nav-center{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-center a{
+  text-decoration:none;color:var(--txt2);font-size:14px;font-weight:500;
+  padding:6px 13px;border-radius:8px;transition:background .15s,color .15s;
+}
+.nav-center a:hover{background:var(--bg2);color:var(--txt);}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-sep{width:1px;height:20px;background:var(--bdr);margin:0 4px;}
+.nav-nsw{
+  text-decoration:none;font-size:13px;font-weight:600;
+  color:#0a0a0a;padding:7px 14px;border-radius:50px;
+  background:var(--acc);border:1.5px solid var(--acc);
+  transition:all .15s;white-space:nowrap;
+}
+.nav-nsw:hover{background:var(--acc2);border-color:var(--acc2);}
+.nav-cta{
+  background:var(--txt);color:#fff !important;
+  padding:7px 16px !important;border-radius:50px !important;font-weight:600 !important;
+  font-size:14px;white-space:nowrap;
+}
+.nav-cta:hover{background:#2a2a2a !important;color:#fff !important;}
+
+/* ── HERO ── */
+.hero{
+  display:flex;flex-direction:row;align-items:center;
+  justify-content:center;
+  padding:96px 52px 68px;gap:48px;
+  background:#fff;min-height:88vh;overflow-x:clip;
+}
+.hero-inner{
+  display:flex;flex-direction:row;align-items:center;
+  gap:48px;width:100%;max-width:1120px;
+}
+.hero-content{flex:0 0 auto;max-width:500px;width:100%;}
+.hero h1{
+  font-size:clamp(40px,5.5vw,70px);
+  font-weight:700;color:var(--txt);line-height:1.0;
+  letter-spacing:-2.5px;margin-bottom:22px;
+}
+.hero h1 .hl{
+  background:var(--acc);
+  color:var(--txt);
+  padding:0 8px 2px;
+  border-radius:4px;
+  display:inline;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+  line-height:1.15;
+}
+.hero-sub{
+  font-size:18px;color:var(--txt2);
+  line-height:1.65;max-width:400px;margin-bottom:32px;
+}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn-group.center{justify-content:center;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 28px;border-radius:50px;
+  font-size:15px;font-weight:600;
+  text-decoration:none;cursor:pointer;border:none;transition:all .18s;
+  letter-spacing:-0.2px;
+}
+.btn-pri{background:var(--acc);color:#0a0a0a;}
+.btn-pri:hover{background:#e6b800;}
+.btn-sec{background:transparent;color:#111;border:1.5px solid rgba(0,0,0,0.18);}
+.btn-sec:hover{background:var(--bg2);}
+.btn-dark{background:#0a0a0a;color:#fff;}
+.btn-dark:hover{background:#2a2a2a;}
+.btn-ghost{background:rgba(10,10,10,.1);color:#0a0a0a;}
+.btn-ghost:hover{background:rgba(10,10,10,.18);}
+
+.hero-phones-wrap{
+  flex:1;display:flex;justify-content:center;align-items:center;
+  position:relative;height:560px;min-width:0;
+}
+
+/* ── PHONE SHARED ── */
+.phone{
+  position:absolute;
+  border-radius:44px;border:9px solid var(--phone-border);
+  overflow:hidden;background:#fff;
+  box-shadow:0 40px 100px rgba(0,0,0,0.22),0 0 0 1px rgba(0,0,0,0.08);
+}
+.ph-h1{width:228px;height:466px;left:4%;transform:rotate(-6deg);z-index:1;top:36px;}
+.ph-h2{width:228px;height:466px;left:44%;transform:rotate(4deg);z-index:2;top:14px;}
+.ph-p1{width:218px;height:446px;left:2%;transform:rotate(-6deg);z-index:1;top:32px;}
+.ph-p2{width:218px;height:446px;left:44%;transform:rotate(5deg);z-index:2;top:10px;}
+
+/* Phone internals */
+.ph-topbar{background:#e8eeff;padding:38px 12px 10px;}
+.ph-tb-row{display:flex;justify-content:space-between;align-items:center;}
+.ph-tb-t{font-size:13px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ph-statsrow{display:flex;background:#4c6ef5;padding:9px 6px;}
+.ph-sc{flex:1;text-align:center;color:#fff;font-family:Helvetica,sans-serif;}
+.ph-sv{display:block;font-size:13px;font-weight:700;line-height:1.2;}
+.ph-sl{font-size:8.5px;opacity:.75;}
+.ph-trip{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid #f2f2f2;}
+.ph-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.ph-dot.day{background:#fff8d6;}
+.ph-dot.ngt{background:#dde2ff;}
+.ph-ti{font-size:10px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;line-height:1.3;}
+.ph-lo{font-size:9px;color:#888;font-family:Helvetica,sans-serif;}
+.ph-grp{font-size:9px;font-weight:700;color:#999;font-family:Helvetica,sans-serif;padding:6px 12px 2px;text-transform:uppercase;letter-spacing:.5px;}
+/* Logbook phone */
+.ph-lb-hdr{background:#f0f0f6;padding:38px 12px 10px;display:flex;justify-content:space-between;align-items:center;}
+.ph-lb-t{font-size:13px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ph-lb-p{font-size:10px;color:#4c6ef5;font-weight:600;font-family:Helvetica,sans-serif;}
+.ph-lb-card{margin:8px;background:#fff;border-radius:10px;padding:10px;border:1px solid #ebebeb;}
+.ph-lb-name{font-size:11px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ph-lb-valid{background:#16a34a;color:#fff;font-size:7.5px;padding:2px 5px;border-radius:8px;font-family:Helvetica,sans-serif;font-weight:700;}
+.ph-lb-lic{font-size:8.5px;color:#888;font-family:Helvetica,sans-serif;margin:2px 0 5px;}
+.ph-lb-note{font-size:8.5px;color:#555;line-height:1.4;font-family:Helvetica,sans-serif;}
+.ph-req-lbl{margin:2px 8px;font-size:8px;font-weight:700;color:#888;font-family:Helvetica,sans-serif;padding:4px 0;text-transform:uppercase;letter-spacing:.5px;}
+.ph-req-row{margin:2px 8px;background:#fff;border-radius:7px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;border:1px solid #f0f0f0;}
+.ph-req-l{font-size:9.5px;color:#333;font-family:Helvetica,sans-serif;}
+.ph-req-pend{font-size:11px;color:#c49000;}
+.ph-req-done{font-size:11px;color:#16a34a;}
+/* Practice suggestions */
+.ps-hdr{background:#e8eeff;padding:36px 12px 10px;text-align:center;}
+.ps-hdr-t{font-size:12px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ps-intro{padding:7px 10px;font-size:8.5px;color:#555;font-family:Helvetica,sans-serif;text-align:center;line-height:1.5;background:#f8f8ff;border-bottom:1px solid #eee;}
+.ps-item{margin:7px;border-radius:8px;padding:9px;border:1px solid;}
+.ps-item.warn{border-color:#ffe4b2;background:#fffbf0;}
+.ps-item.ok{border-color:#d1edff;background:#f0f8ff;}
+.ps-item.good{border-color:#d4edda;background:#f0fff4;}
+.ps-item-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.ps-item-name{font-size:10.5px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ps-item-sub{font-size:8.5px;color:#888;font-family:Helvetica,sans-serif;}
+.ps-warn-note{font-size:8px;color:#9a6200;background:#fff3d0;border-radius:4px;padding:3px 6px;line-height:1.4;font-family:Helvetica,sans-serif;}
+/* Driving summary */
+.ds-hdr{background:#f0f0f6;padding:36px 12px 10px;}
+.ds-hdr-t{font-size:12px;font-weight:700;color:#111;font-family:Helvetica,sans-serif;}
+.ds-grp{font-size:8px;font-weight:700;color:#999;font-family:Helvetica,sans-serif;padding:7px 12px 3px;text-transform:uppercase;letter-spacing:.5px;}
+.ds-row{display:flex;justify-content:space-between;align-items:center;padding:5px 12px;border-bottom:1px solid #f2f2f2;}
+.ds-lbl{font-size:9.5px;color:#333;font-family:Helvetica,sans-serif;}
+.ds-right{display:flex;align-items:center;gap:5px;}
+.ds-bar-bg{width:52px;height:4px;background:#eee;border-radius:2px;}
+.ds-bar-fill{height:4px;border-radius:2px;}
+.ds-pct{font-size:9.5px;font-weight:700;font-family:Helvetica,sans-serif;min-width:32px;text-align:right;}
+
+/* ── STATS BAR ── */
+.stats-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  max-width:1120px;margin:0 auto;
+}
+.stat{
+  padding:28px 36px;display:flex;flex-direction:column;gap:6px;
+  border-right:1px solid var(--bdr);text-align:center;align-items:center;
+}
+.stat:last-child{border-right:none;}
+.stat-val{font-size:30px;font-weight:700;color:var(--txt);line-height:1;letter-spacing:-1px;}
+.stat-lbl{font-size:11px;color:var(--txt3);font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
+
+/* ── SECTIONS ── */
+.sec{padding:112px 52px;}
+.sec-alt{background:var(--bg2);}
+.sec-inner{max-width:1120px;margin:0 auto;}
+.sec-h{
+  font-size:clamp(28px,3.8vw,48px);
+  font-weight:700;color:var(--txt);
+  line-height:1.06;letter-spacing:-1.5px;margin-bottom:14px;
+}
+.sec-sub{font-size:17px;color:var(--txt2);line-height:1.7;max-width:560px;}
+.sec-inner.centered{text-align:center;}
+.sec-inner.centered .sec-sub{margin-left:auto;margin-right:auto;}
+.sec-inner.centered .sec-h{margin-left:auto;margin-right:auto;}
+
+/* ── PLATFORM ── */
+.plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px;text-align:left;}
+.plat-features{display:flex;flex-direction:column;gap:32px;}
+.pf{display:flex;gap:16px;align-items:flex-start;}
+.pf-icon{width:42px;height:42px;border-radius:12px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px;}
+.pf-title{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:4px;letter-spacing:-0.3px;}
+.pf-desc{font-size:14px;color:var(--txt2);line-height:1.65;}
+.plat-phones-wrap{position:relative;height:520px;}
+
+/* ── NSW LEARNER SECTION ── */
+.nsw-section{background:#fffbeb;border-top:3px solid var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
+.nsw-inner-centered{max-width:640px;margin:0 auto;}
+.nsw-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:var(--txt);letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
+.nsw-sub{font-size:16px;color:var(--txt2);line-height:1.7;margin-bottom:28px;}
+.store-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.store-img-btn{display:inline-block;transition:opacity .15s;}
+.store-img-btn:hover{opacity:.85;}
+.store-img-btn img{display:block;height:44px;width:auto;}
+.nsw-action-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.nsw-action-btn{padding:12px 24px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;transition:all .15s;background:#111;color:#fff;}
+.nsw-action-btn:hover{background:#2a2a2a;}
+.nsw-action-btn-outline{background:transparent;color:#111;border:1.5px solid rgba(0,0,0,0.2);}
+.nsw-action-btn-outline:hover{background:rgba(0,0,0,0.05);}
+.nsw-stat{font-size:13px;color:var(--txt3);}
+.nsw-stat strong{color:var(--txt2);}
+.app-shot{position:absolute;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.18);}
+.app-shot-h1{width:238px;left:4%;top:24px;transform:rotate(-6deg);z-index:1;}
+.app-shot-h2{width:238px;left:44%;top:8px;transform:rotate(4deg);z-index:2;}
+.app-shot-p1{width:224px;left:2%;top:20px;transform:rotate(-6deg);z-index:1;}
+.app-shot-p2{width:224px;left:44%;top:4px;transform:rotate(5deg);z-index:2;}
+
+/* ── HAMBURGER & MOBILE MENU ── */
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;
+  flex-shrink:0;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--txt);border-radius:2px;transition:all .25s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
+.mobile-menu{
+  display:none;position:sticky;top:60px;z-index:99;
+  background:var(--bg);border-bottom:1px solid var(--bdr);
+  padding:8px 20px 16px;
+}
+.mobile-menu.open{display:block;}
+.mobile-menu a{
+  display:block;padding:13px 0;font-size:15px;font-weight:500;
+  color:var(--txt);text-decoration:none;
+  border-bottom:1px solid var(--bdr);font-family:var(--ff);
+}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu-nsw{
+  color:#0a0a0a !important;font-size:14px !important;
+  background:var(--acc);border-radius:8px;
+  padding:13px 12px !important;margin-top:4px;
+  border-bottom:none !important;
+}
+.reviews-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;}
+.rating-badge{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--acc);color:#0a0a0a;
+  padding:14px 22px;border-radius:50px;flex-shrink:0;
+}
+.r-score{font-size:28px;font-weight:700;line-height:1;}
+.r-stars{font-size:14px;display:block;margin-top:2px;letter-spacing:1px;}
+.r-meta{font-size:11px;font-weight:700;opacity:.65;}
+#reviews{background:var(--acc);}
+#reviews .rating-badge{background:#0a0a0a;color:#fff;}
+#reviews .sec-h{color:#0a0a0a;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.rev-card{background:var(--bg);border-radius:20px;padding:26px;box-shadow:var(--card-shadow);border:1px solid var(--bdr);}
+.rev-stars{color:var(--acc);font-size:27px;margin-bottom:10px;letter-spacing:2px;}
+.rev-title{font-weight:700;font-size:14px;color:var(--txt);margin-bottom:8px;letter-spacing:-0.2px;}
+.rev-text{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:16px;}
+.rev-author{font-size:11.5px;color:var(--txt3);font-weight:500;}
+
+/* ── STAR BACKGROUND ── */
+.reviews-bg-stars{
+  position:absolute;top:-30%;bottom:-30%;left:-10%;right:-10%;
+  display:flex;flex-direction:column;justify-content:center;gap:10px;
+  pointer-events:none;user-select:none;opacity:.22;
+  transform:rotate(-4deg);
+}
+.reviews-bg-stars::before,.reviews-bg-stars::after{
+  content:'';position:absolute;top:0;bottom:0;width:25%;z-index:2;pointer-events:none;
+}
+.reviews-bg-stars::before{left:0;background:linear-gradient(to right,#f5c400 30%,transparent);}
+.reviews-bg-stars::after{right:0;background:linear-gradient(to left,#f5c400 30%,transparent);}
+.star-row{
+  display:flex;gap:28px;width:max-content;white-space:nowrap;will-change:transform;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);
+}
+.star-row--left  {animation:stars-left  65s linear infinite;}
+.star-row--right {animation:stars-right 80s linear infinite;}
+.star-row--left2 {animation:stars-left  55s linear infinite;}
+.star-row--right2{animation:stars-right 90s linear infinite;}
+.star-row--left3 {animation:stars-left  75s linear infinite;}
+.star-char{font-size:200px;color:#ffffff;flex-shrink:0;line-height:1;}
+@keyframes stars-left {from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes stars-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ── SERVICES ── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px;}
+.svc-card{border-radius:20px;padding:28px;background:var(--bg);box-shadow:var(--card-shadow);border:1px solid var(--bdr);transition:transform .2s;}
+.svc-card:hover{transform:translateY(-3px);}
+.svc-icon{font-size:24px;margin-bottom:14px;}
+.svc-name{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px;letter-spacing:-0.3px;}
+.svc-desc{font-size:13.5px;color:var(--txt2);line-height:1.6;}
+
+/* ── MIGRATION ── */
+.mig-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px;}
+.mig-card{border-radius:20px;overflow:hidden;background:var(--bg);box-shadow:var(--card-shadow);border:1px solid var(--bdr);}
+.mig-card-img{width:100%;height:220px;object-fit:cover;display:block;}
+.mig-card-body{padding:28px 36px 36px;}
+.mig-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc2);margin-bottom:14px;}
+.mig-title{font-size:21px;font-weight:700;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px;}
+.mig-body{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:20px;}
+.mig-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.mig-tag{padding:5px 12px;background:var(--bg2);border-radius:50px;font-size:12px;color:var(--txt2);font-weight:500;border:1px solid var(--bdr);}
+
+/* ── RESEARCH ── */
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px;}
+.rs-body{font-size:16px;color:var(--txt2);line-height:1.75;margin-bottom:22px;}
+.rs-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.rs-card{background:var(--bg2);border-radius:20px;padding:26px;border:1px solid var(--bdr);}
+.rs-val{font-size:36px;font-weight:700;color:var(--txt);display:block;margin-bottom:8px;line-height:1;letter-spacing:-1.5px;}
+.rs-lbl{font-size:13px;color:var(--txt2);line-height:1.5;}
+
+/* ── CTA ── */
+.cta-sec{background:var(--acc);padding:112px 52px;text-align:center;}
+.cta-sec .sec-h{color:#0a0a0a;}
+.cta-sec .sec-sub{color:rgba(10,10,10,.6);margin:0 auto 44px;}
+
+/* ── CONTACT FORM ── */
+.contact-form{max-width:600px;margin:40px auto 0;text-align:left;}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.cf-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.cf-field label{font-size:13px;font-weight:600;color:#0a0a0a;}
+.cf-optional{font-weight:400;opacity:.55;}
+.cf-field input,.cf-field textarea{
+  padding:12px 14px;border-radius:10px;
+  border:1.5px solid rgba(0,0,0,0.18);
+  background:#fff;font-size:14px;color:#0a0a0a;
+  font-family:inherit;outline:none;transition:border-color .15s;width:100%;box-sizing:border-box;
+}
+.cf-field input:focus,.cf-field textarea:focus{border-color:#0a0a0a;}
+.cf-field textarea{resize:vertical;min-height:110px;}
+[data-fs-error]:not(:empty){font-size:12px;color:#b91c1c;margin-top:2px;display:block;}
+.contact-success{
+  max-width:600px;margin:32px auto 0;
+  background:#0a0a0a;color:#fff;border-radius:14px;
+  padding:22px 28px;text-align:center;font-size:15px;font-weight:500;
+  transition:opacity .5s ease;
+}
+.contact-success[style*="none"]{display:none;}
+@media(max-width:600px){.cf-row{grid-template-columns:1fr;}}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--bdr);}
+.footer-top{display:flex;gap:52px;max-width:1120px;margin:0 auto 48px;align-items:flex-start;}
+.footer-brand{max-width:260px;flex-shrink:0;}
+.footer-logo-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.footer-tagline{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:14px;}
+.footer-contact{font-size:13px;color:var(--txt3);}
+.footer-contact a{color:var(--txt2);text-decoration:none;font-weight:600;}
+.footer-col{flex:1;min-width:120px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col a{font-size:14px;color:var(--txt2);text-decoration:none;transition:color .15s;}
+.footer-col a:hover{color:var(--txt);}
+.footer-nsw{
+  max-width:240px;flex-shrink:0;
+  border:1.5px solid rgba(245,196,0,.5);border-radius:16px;
+  padding:20px 22px;background:rgba(245,196,0,.08);
+}
+.footer-nsw h4{font-size:13.5px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.footer-nsw p{font-size:12.5px;color:var(--txt2);line-height:1.55;margin-bottom:12px;}
+.footer-nsw a{font-size:13px;font-weight:600;color:#0a0a0a;text-decoration:none;}
+.footer-btm{max-width:1120px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-btm p{font-size:12px;color:var(--txt3);}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-center{display:none;}
+  .nav-right{display:none;}
+  .hamburger{display:flex;}
+
+  .hero{padding:68px 24px 52px;min-height:auto;}
+  .hero-inner{flex-direction:column;gap:0;align-items:center;text-align:center;}
+  .hero-content{max-width:100%;width:100%;text-align:center;}
+  .hero-content .hero-sub{text-align:center;}
+  .hero h1{font-size:clamp(34px,9vw,52px);letter-spacing:-1.5px;text-align:center;}
+  .hero-sub{font-size:16px;max-width:100%;text-align:center;}
+  .btn-group{justify-content:center;}
+  .research-grid .rs-body{text-align:center;}
+  .hero-phones-wrap{
+    width:100%;height:auto;
+    display:flex;justify-content:center;align-items:flex-start;
+    gap:16px;margin-top:48px;padding-bottom:8px;position:relative;
+  }
+  .ph-h1,.ph-h2{
+    position:relative;transform:none;left:auto;top:auto;
+    width:160px;height:328px;border-radius:36px;border-width:8px;flex-shrink:0;
+  }
+
+  .stats-bar{grid-template-columns:1fr 1fr;}
+  .stat{border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3){border-bottom:none;}
+  .stat:nth-child(4){border-right:none;border-bottom:none;}
+
+  .sec{padding:68px 24px;}
+  .plat-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-phones-wrap{
+    width:100%;height:auto;
+    display:flex;justify-content:center;align-items:flex-start;
+    gap:12px;margin-top:40px;padding-bottom:8px;position:relative;
+  }
+  .app-shot{
+    position:relative;transform:none !important;left:auto;top:auto;
+    width:47%;max-width:175px;flex-shrink:0;
+  }
+  .plat-phones-wrap{
+    height:auto;display:flex;justify-content:center;gap:12px;padding-bottom:8px;
+  }
+
+  .nsw-section{padding:56px 24px;}
+  .nsw-inner{grid-template-columns:1fr;gap:36px;}
+  .nsw-sub{max-width:100%;}
+  .store-btns{gap:8px;}
+  .store-btn{flex:1;justify-content:center;}
+  .nsw-right{gap:12px;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .mig-grid{grid-template-columns:1fr;}
+  .research-grid{grid-template-columns:1fr;gap:48px;}
+  .nsw-section{padding:56px 24px;}
+  .nsw-action-btns{flex-direction:column;align-items:stretch;}
+  .nsw-action-btn{text-align:center;}
+  .cta-sec{padding:68px 24px;}
+
+  footer{padding:48px 24px 32px;}
+  .footer-top{flex-wrap:wrap;gap:36px;}
+  .footer-brand{max-width:100%;}
+  .footer-col{min-width:130px;}
+  .footer-nsw{max-width:100%;width:100%;}
+  .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+
+@media(max-width:480px){
+  .app-shot{width:46%;max-width:155px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .rs-stats{grid-template-columns:1fr 1fr;}
+  .hero h1{letter-spacing:-1px;}
+  .btn-group.center{flex-direction:column;align-items:stretch;}
+}
+</style>
+</head>
+<body>
+
+<!-- NSW Banner -->
+<div class="banner">
+  NSW learner driver or supervisor?
+  <a href="support.html">Visit the Roundtrip for NSW support page →</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+    <span class="logo-name">Roundtrip</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#features">For Government</a></li>
+    <li><a href="#migration">Migration</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact" class="nav-cta">Talk to us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <a href="support.html" class="nav-nsw">NSW Support</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#overview" onclick="closeMobileMenu()">Overview</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#platform" onclick="closeMobileMenu()">For Government</a>
+  <a href="#migration" onclick="closeMobileMenu()">Migration</a>
+  <a href="#research" onclick="closeMobileMenu()">Research</a>
+  <a href="#contact" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="platform">
+  <div class="hero-inner">
+  <div class="hero-content">
+    <h1>The Learner Logbook App Behind Australia's <span class="hl">Safer Drivers</span></h1>
+    <p class="hero-sub">A world class learner logbook app officially used by NSW and Tasmanian Governments. Designed to build safer drivers, not just count hours.</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn btn-pri">Talk to our team</a>
+    </div>
+  </div>
+
+  <div class="hero-phones-wrap">
+    <img src="assets/screenshots/logbook-03.png" class="app-shot app-shot-h1" alt="Roundtrip trips list">
+    <img src="assets/screenshots/logbook-04.png" class="app-shot app-shot-h2" alt="Roundtrip logbook view">
+  </div>
+  </div><!-- /hero-inner -->
+</section>
+
+<!-- Stats bar -->
+<div style="background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);">
+  <div class="stats-bar">
+  <div class="stat"><span class="stat-val">10M+</span><span class="stat-lbl">Trips recorded</span></div>
+  <div class="stat"><span class="stat-val">4.7★</span><span class="stat-lbl">iOS App Store rating</span></div>
+  <div class="stat"><span class="stat-val">1,200+</span><span class="stat-lbl">App reviews</span></div>
+  <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">State deployments</span></div>
+  </div>
+</div>
+
+<!-- NSW Learner Section -->
+<section class="nsw-section">
+  <div class="nsw-inner-centered">
+    <h2 class="nsw-h">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
+    <p class="nsw-sub">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
+    <div class="store-btns">
+      <a href="https://apps.apple.com/au/app/roundtrip-nsw-learner-logbook/id1171287648" target="_blank" class="store-img-btn">
+        <img src="assets/badge-app-store.svg" alt="Download on the App Store" height="44">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.eatmorepixels.roundtrip" target="_blank" class="store-img-btn">
+        <img src="assets/badge-google-play.svg" alt="Get it on Google Play" height="44">
+      </a>
+    </div>
+    <div class="nsw-action-btns">
+      <a href="/faqs" class="nsw-action-btn">Browse FAQs</a>
+      <a href="support.html" class="nsw-action-btn nsw-action-btn-outline">Contact Support</a>
+    </div>
+  </div>
+</section>
+
+<!-- Platform section -->
+<section class="sec" id="overview">
+  <div class="sec-inner centered">
+    <h2 class="sec-h">More than a logbook.<br>A road safety tool.</h2>
+    <p class="sec-sub">The Graduated Driver Licensing program exists to create safer drivers. Our app was built with that mission at its core, not as an afterthought.</p>
+    <div class="plat-grid">
+      <div class="plat-features">
+        <div class="pf">
+          <div class="pf-icon">📖</div>
+          <div>
+            <div class="pf-title">Fully Automatic Trip Recording</div>
+            <div class="pf-desc">The app automatically captures start and end time, start and end location, weather conditions, and whether the drive took place during the day or night, so learners can focus on driving, not logging.</div>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon">🎯</div>
+          <div>
+            <div class="pf-title">Smart Practice Suggestions</div>
+            <div class="pf-desc">Analyses each learner's trip history to identify gaps in driving (e.g., night hours, wet conditions, and unsealed roads) then prompts learners to practice underdeveloped skills before their test.</div>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon">📊</div>
+          <div>
+            <div class="pf-title">Driving Summary & Insights</div>
+            <div class="pf-desc">A personalised breakdown of driving conditions, road types, and times, giving learners and supervisors a clear picture of experience breadth.</div>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon">🎓</div>
+          <div>
+            <div class="pf-title">Structured Learning Goals</div>
+            <div class="pf-desc">Progressive learning levels guide learners from foundational skills through to advanced experience, tied to real driving competencies with text, images and video supported.</div>
+          </div>
+        </div>
+        <div class="pf">
+          <div class="pf-icon">📢</div>
+          <div>
+            <div class="pf-title">Government Messaging Campaigns</div>
+            <div class="pf-desc">Deliver targeted in-app messages based on location, milestone, or campaign, directly from your department at the moments that matter most.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plat-phones-wrap">
+        <img src="assets/screenshots/logbook-02.png" class="app-shot app-shot-p1" alt="Roundtrip Learning Centre">
+        <img src="assets/screenshots/logbook-01.png" class="app-shot app-shot-p2" alt="Roundtrip recording a trip">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="sec sec-alt" id="reviews" style="position:relative;overflow:hidden;">
+  <div class="reviews-bg-stars" id="reviews-bg-stars"></div>
+  <div class="sec-inner" style="position:relative;z-index:1;">
+    <div style="margin-bottom:48px;text-align:center;">
+      <h2 class="sec-h">Australia's highest-rated<br>official logbook app.</h2>
+      <div class="rating-badge" style="margin-top:24px;display:inline-flex;">
+        <div><div class="r-score">4.7<span style="font-weight:700;">/5</span></div><div class="r-stars">★★★★★</div></div>
+        <div><div class="r-meta">1,200+ reviews</div><div class="r-meta">iOS App Store</div></div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">The. Best. Learner. Logbook.</div>
+        <div class="rev-text">Roundtrip is the best learner logbook for NSW Learner Drivers. The whole process is elegant and simple to use. Highly recommend — don't even think about using a paper logbook. This is perfect!</div>
+        <div class="rev-author">ant-lope · Jan 2019</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Genuinely the best app ever created</div>
+        <div class="rev-text">Makes every aspect of filling out a logbook SO easy. Takes 20 seconds to log a drive and allows you to tap and go before driving. Includes options to log Safer Drivers Course and the 3 for 1 lesson hours. Made the process a million times less stressful.</div>
+        <div class="rev-author">jeorgaret · Jan 2025</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Learning goals and safer driving</div>
+        <div class="rev-text">It breaks down your day and night hours, and has learning goals you need to pass to help yourself become a better and safer driver. Overall I'm very happy and satisfied with this app.</div>
+        <div class="rev-author">MolRobMc · Jul 2023</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Excellent app and support</div>
+        <div class="rev-text">I've been using the app for a year for my daughter getting her learners permit. Absolutely brilliant, super easy to use, and when needed — very rare — amazing support. So much easier than a manual logbook. Highly highly recommend.</div>
+        <div class="rev-author">Derek M1234 · Sep 2024</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Great app, great support</div>
+        <div class="rev-text">It was fairly easy to transfer hours from our old logbook. Very simple and easy to use. The 3:1 bonus is automatically recognised, and when I sign off I can see the current logbook total so I know she's on track. Support could not have been more helpful.</div>
+        <div class="rev-author">The AB Heroes · May 2019</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Why would you bother with a paper version?</div>
+        <div class="rev-text">Such a great idea. Works perfectly. Great that we can share the account across multiple devices to share the driving hours amongst the family. Had a login issue and it was resolved by email support within 90 seconds.</div>
+        <div class="rev-author">RNS76! · May 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full service -->
+<section class="sec" id="features">
+  <div class="sec-inner centered">
+    <h2 class="sec-h">Everything your jurisdiction needs.</h2>
+    <p class="sec-sub">We handle the full stack, from white-labelled native apps to front-line learner support, so your team can focus on policy, not managing the app. We've already replaced legacy systems in NSW and Tasmania and can do the same for your jurisdiction.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">📱</div>
+        <div class="svc-name">iOS + Android Apps</div>
+        <div class="svc-desc">Customised, white-labelled native apps tailored to your state's GDL requirements and brand identity.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🎧</div>
+        <div class="svc-name">Customer Support</div>
+        <div class="svc-desc">Front-line learner and supervisor support via local phone and email, including extended hours.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🔒</div>
+        <div class="svc-name">Secure Australian Hosting</div>
+        <div class="svc-desc">All data hosted securely in Australia, meeting government data sovereignty and privacy requirements.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🔄</div>
+        <div class="svc-name">Regular Updates</div>
+        <div class="svc-desc">Ongoing monitoring, bug fixes, and enhancements keep the app modern, compliant, and secure.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">📈</div>
+        <div class="svc-name">Data Reporting</div>
+        <div class="svc-desc">Monthly analytics and insights in government-ready formats, including learner trends, trip data, and engagement metrics.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">✨</div>
+        <div class="svc-name">New Features</div>
+        <div class="svc-desc">Access to the national feature roadmap as it rolls out, including updated learning centre, driver quizzes, and safer driver scores.</div>
+      </div>
+    </div>
+    <div class="btn-group center" style="margin-top:48px;">
+      <a href="#contact" class="btn btn-dark">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Migration -->
+<section class="sec sec-alt" id="migration">
+  <div class="sec-inner centered">
+    <h2 class="sec-h">Proven migration for<br>existing platforms.</h2>
+    <p class="sec-sub">Whether replacing a single legacy system or consolidating multiple third-party apps, we've delivered seamless migrations with zero disruption to learners, supervisors, or test centres.</p>
+    <div class="mig-grid">
+      <div class="mig-card">
+        <img src="assets/migration/nsw.jpg" alt="NSW migration case study" class="mig-card-img">
+        <div class="mig-card-body">
+          <div class="mig-eyebrow">Case Study · NSW</div>
+          <div class="mig-title">Transport for NSW</div>
+          <div class="mig-body">Roundtrip won a competitive tender as the single official replacement for multiple fragmented third-party apps, with no standardised APIs shared between them. Complex datasets were consolidated and migrated with learner progress preserved and no disruption to the transition.</div>
+          <div class="mig-tags">
+            <div class="mig-tag">Multi-app consolidation</div>
+            <div class="mig-tag">Data migration</div>
+            <div class="mig-tag">TfNSW integration</div>
+          </div>
+        </div>
+      </div>
+      <div class="mig-card">
+        <img src="assets/migration/tasmania.jpg" alt="Tasmania migration case study" class="mig-card-img">
+        <div class="mig-card-body">
+          <div class="mig-eyebrow">Case Study · Tasmania</div>
+          <div class="mig-title">Tasmanian Government</div>
+          <div class="mig-body">In 2023, we white-labelled and deployed PlatesPlus for Tasmania, replacing their legacy solution. Learners simply updated their existing app, keeping their account, data, and history intact, with no disruption to any stakeholder.</div>
+          <div class="mig-tags">
+            <div class="mig-tag">White-label deployment</div>
+            <div class="mig-tag">GDL customisation</div>
+            <div class="mig-tag">Zero disruption</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section class="sec" id="research">
+  <div class="sec-inner centered">
+    <h2 class="sec-h">Over a decade of research<br>built into every feature.</h2>
+    <div class="research-grid">
+      <div>
+        <p class="rs-body">Roundtrip began as a PhD research project at Queensland University of Technology, exploring how gamification and behavioural design can promote safer driving in young people.</p>
+        <p class="rs-body">Since then we have published peer-reviewed research with internationally recognised leaders in driver safety, on driving behaviour, logbook effectiveness, and how digital tools can shape safer outcomes and not just track compliance.</p>
+        <p class="rs-body">Research insights directly inform app features, from structured driving summaries to smart practice suggestions that identify gaps in a learner's experience, built into every logbook.</p>
+      </div>
+      <div class="rs-stats">
+        <div class="rs-card"><span class="rs-val">10+</span><span class="rs-lbl">Years of research informing app features</span></div>
+        <div class="rs-card"><span class="rs-val">6+</span><span class="rs-lbl">Peer-reviewed road safety publications</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="sec-inner">
+    <h2 class="sec-h">Ready to bring Roundtrip<br>to your jurisdiction?</h2>
+    <p class="sec-sub">If your state or territory is evaluating learner logbook solutions, we'd love to talk about what a partnership could look like.</p>
+
+    <div data-fs-success class="contact-success" style="display:none;">Thanks! We'll be in touch soon.</div>
+
+    <form id="contact-form" class="contact-form">
+      <input type="hidden" name="_subject" value="New enquiry — Roundtrip">
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required data-fs-field>
+          <span data-fs-error="name"></span>
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@example.com" required data-fs-field>
+          <span data-fs-error="email"></span>
+        </div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cf-org">Organisation</label>
+          <input type="text" id="cf-org" name="organisation" placeholder="Department or agency" data-fs-field>
+        </div>
+        <div class="cf-field">
+          <label for="cf-phone">Phone <span class="cf-optional">(optional)</span></label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="+61 400 000 000" data-fs-field>
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" placeholder="Tell us about your jurisdiction and what you're looking for..." required data-fs-field></textarea>
+        <span data-fs-error="message"></span>
+      </div>
+      <div style="text-align:center;">
+        <button type="submit" class="btn btn-dark" data-fs-submit-btn>Send message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="about">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <span class="logo-name">Roundtrip</span>
+      </div>
+      <p class="footer-tagline">Australia's official learner logbook app. Built on research. Designed for safety.</p>
+      <div class="footer-contact">
+        A product of <a href="https://www.eatmorepixels.com.au">Eat More Pixels Pty Ltd</a><br>
+        Brisbane, Australia · Since 2015
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Roundtrip</h4>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#features">For Government</a></li>
+        <li><a href="#migration">Migration</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Talk to us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.eatmorepixels.com.au">About Eat More Pixels</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-nsw">
+      <h4>🚗 NSW learner driver?</h4>
+      <p>Find FAQs, supervisor guides, and support resources for the Roundtrip app in NSW.</p>
+      <a href="support.html">NSW support page →</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <p>© Eat More Pixels Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Star background in reviews section
+(function(){
+  const container = document.getElementById('reviews-bg-stars');
+  const rows = [
+    {cls:'star-row--right',  count:36},
+    {cls:'star-row--left',   count:36},
+    {cls:'star-row--right2', count:36},
+    {cls:'star-row--left2',  count:36},
+    {cls:'star-row--left3',  count:36},
+  ];
+  rows.forEach(({cls, count}) => {
+    const row = document.createElement('div');
+    row.className = 'star-row ' + cls;
+    for(let set = 0; set < 2; set++){
+      for(let i = 0; i < count; i++){
+        const s = document.createElement('span');
+        s.className = 'star-char';
+        s.textContent = '★';
+        row.appendChild(s);
+      }
+    }
+    container.appendChild(row);
+  });
+})();
+
+// Formspree
+window.formspree = window.formspree || function(){ (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#contact-form', formId: 'mjgdawop' });
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>

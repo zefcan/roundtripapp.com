@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support &amp; FAQs — Roundtrip NSW Learner Logbook</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',Helvetica,sans-serif;background:#fff;color:#111;font-size:16px;line-height:1.6;}
+:root{--acc:#f5c400;--acc2:#d4a800;--bg:#ffffff;--bg2:#f5f5f5;--txt:#0a0a0a;--txt2:#666;--txt3:#999;--bdr:rgba(0,0,0,0.07);}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 52px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0;display:block;}
+.logo-name{font-size:17px;font-weight:700;color:var(--txt);letter-spacing:-0.5px;}
+.nav-center{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-center a{text-decoration:none;color:var(--txt2);font-size:14px;font-weight:500;padding:6px 13px;border-radius:8px;transition:background .15s,color .15s;}
+.nav-center a:hover{background:var(--bg2);color:var(--txt);}
+.nav-cta{background:var(--txt);color:#fff !important;padding:7px 16px !important;border-radius:50px !important;font-weight:600 !important;font-size:14px;white-space:nowrap;}
+.nav-cta:hover{background:#2a2a2a !important;color:#fff !important;}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-sep{width:1px;height:20px;background:var(--bdr);margin:0 4px;}
+.nav-nsw{text-decoration:none;font-size:13px;font-weight:600;color:#0a0a0a;padding:7px 14px;border-radius:50px;background:var(--acc);border:1.5px solid var(--acc);transition:all .15s;white-space:nowrap;}
+.nav-nsw:hover{background:var(--acc2);border-color:var(--acc2);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px;transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
+.mobile-menu{display:none;position:sticky;top:60px;z-index:99;background:var(--bg);border-bottom:1px solid var(--bdr);padding:8px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--bdr);}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu-nsw{color:#0a0a0a !important;font-size:14px !important;background:var(--acc);border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
+
+/* NSW SECTION */
+.nsw-section{background:#fffbeb;border-top:3px solid var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:56px 48px;text-align:center;}
+.nsw-inner-centered{max-width:580px;margin:0 auto;}
+.nsw-h{font-size:clamp(22px,3vw,32px);font-weight:700;color:#111;letter-spacing:-1px;line-height:1.15;margin-bottom:12px;}
+.nsw-sub{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:22px;}
+.store-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.store-img-btn{display:inline-block;transition:opacity .15s;}
+.store-img-btn:hover{opacity:.85;}
+.store-img-btn img{display:block;height:44px;width:auto;}
+.nsw-action-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.nsw-action-btn{padding:11px 22px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;transition:all .15s;background:#111;color:#fff;}
+.nsw-action-btn:hover{background:#2a2a2a;}
+.nsw-action-btn-outline{background:transparent;color:#111;border:1.5px solid rgba(0,0,0,0.2);}
+.nsw-action-btn-outline:hover{background:rgba(0,0,0,0.05);}
+
+/* PAGE */
+.page-wrap{max-width:1120px;margin:0 auto;}
+.hero-inner-wrap{max-width:1120px;margin:0 auto;}
+.hero{background:var(--bg2);padding:64px 48px 52px;text-align:center;border-bottom:1px solid var(--bdr);}
+.hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:8px;}
+.hero p{font-size:17px;color:var(--txt2);}
+.main{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
+
+/* CONTACT */
+.section-label{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:20px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px;}
+.contact-card{border:1px solid var(--bdr);border-radius:16px;padding:28px;transition:border-color .2s;}
+.contact-card:hover{border-color:rgba(0,0,0,0.18);}
+.contact-card .icon{font-size:28px;margin-bottom:12px;}
+.contact-card h3{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-0.2px;}
+.contact-card p{font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:16px;}
+.contact-card a{font-size:14px;font-weight:600;color:#111;text-decoration:none;display:inline-flex;align-items:center;gap:4px;}
+.contact-card a:hover{text-decoration:underline;}
+.contact-btn{display:inline-block;background:#111;color:#fff !important;padding:10px 22px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none !important;transition:background .15s;}
+.contact-btn:hover{background:#2a2a2a;text-decoration:none !important;}
+.form-section h2{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px;}
+.form-section p{font-size:15px;color:var(--txt2);margin-bottom:28px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:#111;margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid var(--bdr);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:#111;background:#fff;outline:none;transition:border .2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--acc);}
+.form-group textarea{resize:vertical;min-height:130px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.submit-btn{background:#111;color:#fff;padding:14px 28px;border-radius:50px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:background .15s;}
+.submit-btn:hover{background:#2a2a2a;}
+
+/* FAQ DIVIDER */
+.faq-divider{margin:64px 0 48px;padding-top:64px;border-top:1px solid var(--bdr);}
+.faq-divider h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+.faq-divider p{font-size:16px;color:var(--txt2);margin-bottom:28px;}
+
+/* SEARCH */
+.search-wrap{max-width:540px;position:relative;margin-bottom:32px;}
+.search-wrap input{width:100%;padding:14px 20px 14px 48px;border-radius:50px;border:2px solid var(--bdr);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border .2s;background:#fff;}
+.search-wrap input:focus{border-color:var(--acc);}
+.search-wrap .search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;}
+#clear-search{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:var(--txt3);display:none;}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.filter-btn{padding:7px 16px;border-radius:50px;border:1.5px solid var(--bdr);background:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--txt2);cursor:pointer;transition:all .15s;}
+.filter-btn:hover{border-color:#111;color:#111;}
+.filter-btn.active{background:#111;color:#fff;border-color:#111;}
+
+/* ACCORDION */
+.faq-category{margin-bottom:48px;}
+.faq-category-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bdr);}
+.faq-item{border:1px solid var(--bdr);border-radius:12px;margin-bottom:8px;overflow:hidden;transition:border-color .2s;}
+.faq-item:hover{border-color:rgba(0,0,0,0.14);}
+.faq-item.open{border-color:var(--acc);}
+.faq-q{width:100%;text-align:left;background:#fff;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#111;transition:background .15s;}
+.faq-item.open .faq-q{background:#fffdf0;}
+.faq-icon{width:22px;height:22px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:all .25s;color:var(--txt2);}
+.faq-item.open .faq-icon{background:var(--acc);color:#111;transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:2000px;}
+.faq-a-inner{padding:4px 20px 20px;font-size:14.5px;color:var(--txt2);line-height:1.75;}
+.faq-a-inner p{margin-bottom:12px;}
+.faq-a-inner p:last-child{margin-bottom:0;}
+.faq-a-inner strong{color:#111;}
+.faq-a-inner ol,.faq-a-inner ul{margin:12px 0 12px 20px;}
+.faq-a-inner li{margin-bottom:6px;}
+.faq-a-inner a{color:#111;font-weight:600;}
+#no-results{display:none;text-align:center;padding:48px 0;color:var(--txt2);}
+#no-results h3{font-size:18px;font-weight:700;color:#111;margin-bottom:8px;}
+
+/* FOOTER */
+footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--bdr);}
+.footer-top{display:flex;gap:52px;max-width:1120px;margin:0 auto 48px;align-items:flex-start;}
+.footer-brand{max-width:260px;flex-shrink:0;}
+.footer-logo-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.footer-tagline{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:14px;}
+.footer-contact{font-size:13px;color:var(--txt3);}
+.footer-contact a{color:var(--txt2);text-decoration:none;font-weight:600;}
+.footer-col{flex:1;min-width:120px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col a{font-size:14px;color:var(--txt2);text-decoration:none;transition:color .15s;}
+.footer-col a:hover{color:var(--txt);}
+.footer-nsw{max-width:240px;flex-shrink:0;border:1.5px solid rgba(245,196,0,.5);border-radius:16px;padding:20px 22px;background:rgba(245,196,0,.08);}
+.footer-nsw h4{font-size:13.5px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.footer-nsw p{font-size:12.5px;color:var(--txt2);line-height:1.55;margin-bottom:12px;}
+.footer-nsw a{font-size:13px;font-weight:600;color:#0a0a0a;text-decoration:none;}
+.footer-btm{max-width:1120px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-btm p{font-size:12px;color:var(--txt3);}
+
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-center{display:none;}
+  .nav-right{display:none;}
+  .hamburger{display:flex;}
+  .nsw-section{padding:48px 24px;}
+  .nsw-action-btns{flex-direction:column;align-items:stretch;}
+  .nsw-action-btn{text-align:center;}
+  .main{padding:40px 20px 72px;}
+  .contact-grid{grid-template-columns:1fr;}
+  footer{padding:48px 24px 32px;}
+  .footer-top{flex-wrap:wrap;gap:36px;}
+  .footer-brand{max-width:100%;}
+  .footer-col{min-width:130px;}
+  .footer-nsw{max-width:100%;width:100%;}
+  .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+    <span class="logo-name">Roundtrip</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html#overview">Overview</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#features">For Government</a></li>
+    <li><a href="index.html#migration">Migration</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Talk to us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <a href="support.html" class="nav-nsw">NSW Support</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#overview" onclick="closeMobileMenu()">Overview</a>
+  <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="index.html#platform" onclick="closeMobileMenu()">Platform</a>
+  <a href="index.html#migration" onclick="closeMobileMenu()">Migration</a>
+  <a href="index.html#research" onclick="closeMobileMenu()">Research</a>
+  <a href="index.html#contact" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+</div>
+
+<section class="nsw-section">
+  <div class="nsw-inner-centered">
+    <h2 class="nsw-h">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
+    <p class="nsw-sub">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
+    <div class="store-btns">
+      <a href="https://apps.apple.com/au/app/roundtrip-nsw-learner-logbook/id1171287648" target="_blank" class="store-img-btn">
+        <img src="assets/badge-app-store.svg" alt="Download on the App Store" height="44">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.eatmorepixels.roundtrip" target="_blank" class="store-img-btn">
+        <img src="assets/badge-google-play.svg" alt="Get it on Google Play" height="44">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<main class="main" id="contact">
+
+  <h2 class="section-label">Support</h2>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">📧</div>
+      <h3>Email support</h3>
+      <p>Send us a message and we'll get back to you as soon as possible, usually within one business day.</p>
+      <a href="mailto:roundtrip@eatmorepixels.com.au" class="contact-btn">Email Us</a>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📱</div>
+      <h3>Need to verify your licence?</h3>
+      <p>For licence verification issues, <strong>double check all your details are correct first.</strong> Then call Service NSW directly on 13 77 88 to check your details are valid. If you're still having issues, email us.</p>
+      <a href="tel:137788" class="contact-btn">13 77 88</a>
+    </div>
+  </div>
+
+  <!-- FAQs -->
+  <div class="faq-divider" id="faqs">
+    <h2>Frequently Asked Questions</h2>
+    <p>Find answers to the most common questions about using Roundtrip.</p>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="Search FAQs…" autocomplete="off">
+    <button id="clear-search" aria-label="Clear search">×</button>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All questions</button>
+    <button class="filter-btn" data-filter="general">General</button>
+    <button class="filter-btn" data-filter="nsw">NSW Learner Drivers</button>
+    <button class="filter-btn" data-filter="technical">Technical &amp; Troubleshooting</button>
+  </div>
+
+  <div id="no-results">
+    <h3>No results found</h3>
+    <p>Try a different search term, or <a href="mailto:roundtrip@eatmorepixels.com.au">contact us</a> directly.</p>
+  </div>
+
+  <!-- GENERAL -->
+  <div class="faq-category" data-category="general">
+    <div class="faq-category-title">General FAQs</div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">Does Roundtrip replace my paper logbook?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>If you're in NSW then yes!</strong></p>
+        <p>You can officially use our app instead of the paper based logbook to record and submit your practice to Transport for NSW.</p>
+        <p><strong>For other states and territories... not yet.</strong></p>
+        <p>We're working hard at trying to make Roundtrip official for other states and territories. Roundtrip is designed for NSW so please note that you won't be able to submit your logbook for other states (e.g., QLD and SA) using the app.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">Does Roundtrip sync over multiple devices?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Yes! We provide backups and we synchronise automatically over multiple devices.</strong></p>
+        <p>Roundtrip supports synching. You can log in to the Roundtrip app with the same account on as many phones as you want! Any updates made on one device will automatically be made on other devices logged with the same account to Roundtrip.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">Do both learner drivers and supervisors need to install Roundtrip?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Nope! Just learner drivers.</strong></p>
+        <p>We wanted to make Roundtrip as easy as possible to use so only learner drivers need an account and the app installed on their device. Supervisors don't need to install the app or create an account.</p>
+        <p>Supervisors just need to approve their personal data being added to the app, check their information is correct and sign-off on any practice they supervise.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">I forgot to tap 3-for-1 for my structured lesson! Can you change it for me?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Unfortunately once a trip is signed off by an instructor or supervisor, it is locked and cannot be edited anymore.</p>
+        <p>Since you should be credited with the 3 for 1 hour, you'll need to delete the trip and add it back manually again correctly.</p>
+        <p>Here are the detailed instructions:</p>
+        <ol>
+          <li>Note down all the trip details</li>
+          <li>Delete the trip by swiping on the trip from right to left on the logbook view</li>
+          <li>Add a trip back manually by tapping on the "+" button at the top right of the logbook view</li>
+          <li>Be sure to check the 3-for-1 option this time</li>
+          <li>Ask your instructor to sign-off on the same trip once again (you may want to delete the previous one in front of them so they can confirm)</li>
+        </ol>
+        <p>We realise this isn't the easiest fix but this way you will credited for the extra hours from your structured lesson with the instructor.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">I'm learning on an automatic vehicle, what do I do for the manual learning goals?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>As you're operating an automatic vehicle, the manual items won't apply to you.</p>
+        <p>Just review them and sign them off to move onto the next goals.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I use my phone while I'm driving?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>No.</strong> It is illegal for a learner to use any function of a mobile phone while driving. This includes when waiting at traffic lights or while in traffic. You must be safely parked out of the line of traffic with your vehicle turned off to use your phone in any way.</p>
+        <p>The Roundtrip app is designed in a way so that you can enter all your required details before you start your practice drive. You can then put the phone away, and the app will record your drive in the background automatically.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="general">
+      <button class="faq-q" onclick="toggleFaq(this)">Can my supervising driver or passenger use a mobile phone while I'm driving?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Yes, but</strong> it's best if your supervising driver doesn't use a mobile phone as it can distract you while you're driving, or distract them from providing you with the assistance and guidance you need while you're building your skills and confidence.</p>
+        <p>It's important that supervisors and passengers understand the danger of distraction, and don't distract you while you're practicing driving by using their phones.</p>
+        <p>We recommend that supervisors and passengers keep the phone use to a minimum while they're in the car with you.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- NSW LEARNER DRIVERS -->
+  <div class="faq-category" data-category="nsw">
+    <div class="faq-category-title">FAQs for NSW Learner Drivers</div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">If I use Roundtrip, do I still need to fill out the paper log book?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>No, you can use Roundtrip instead of the paper logbook.</strong></p>
+        <p>You can choose to use either an app, or the paper log book, but not both (i.e., you can't submit half the practice using the app and half the practice using the paper log book, you have to submit one or the other).</p>
+        <p>When making your decision you may want to consider the availability of phone reception in your area - if you have problems with reception you might want to stick with the paper log book.</p>
+        <p>Roundtrip doesn't require internet access while driving. However, you will need an internet connection to sign up or log in to Roundtrip. Also, if you don't have an internet connection when you start and end a drive, the app won't be able to verify your and your supervisor's licence details.</p>
+        <p>Mobile data will help with auto completing some of the fields (e.g., weather), but it's not a requirement.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I transfer hours from my paper log book to the digital app?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Yes, but there will be a bit of manual entry.</strong></p>
+        <p>You will have to individually enter your paper log book entries, including the date, time and other details, into the app. Your supervising driver will also need to verify each entry. If you only have a few entries this should be easy for you to do, however if you have many it might be better for you to keep using the paper log book. The choice is yours.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Will paper log books be phased out?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>From what we know there are currently no plans to phase the paper log book out.</p>
+        <p>So you can choose whether to continue with a paper log book or use Roundtrip.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Does Roundtrip require internet access when I'm driving?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>No, not while you're driving.</strong></p>
+        <p>However, you will need an internet connection to sign up or log in to Roundtrip. Also, if you don't have an internet connection when you start and end a drive, the app won't be able to verify your and your supervisor's licence details.</p>
+        <p>Mobile data will help with auto completing some of the fields (e.g., weather), but it's not a requirement.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">How do I submit my log book when I'm ready to do my driving test?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Easy! Just submit through the app.</strong></p>
+        <p>Roundtrip will automatically calculate your 120 driving hours, and ensure you have completed all 20 learning goals and your Hazard Perception Test sign-off before you submit.</p>
+        <p>You'll then be able to submit your hours through the app on the profile page. You and a supervisor will need to sign off on the submission.</p>
+        <p>Once you hit submit, you can book your test.</p>
+        <p><strong>Note - You need to submit at least 48 hours before your driving test.</strong></p>
+        <p>Once your hours have been submitted electronically, you won't need to show the testing officer any proof that you've completed your 120 hours.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">How soon can I book my driving test?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>You can book a driving test once you've completed the minimum requirements.</p>
+        <p>These include holding your learner licence for at least 12 months, being at least 17 years old, and completing at least 120 hours of practical driving experience (including 20 night time hours).</p>
+        <p>You'll need to submit your driving hours from Roundtrip at least 48 hours before you go for your driving test.</p>
+        <p>🎂 Planning on taking your driving test on your birthday? You can submit your logbook 48 hours before your birthday so you're ready to go on the day.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">What if I fail my driving test? Do I still need to record more hours in the app?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>No. You don't need to record any more hours in the app.</strong></p>
+        <p>If you've reached the minimum requirements you don't need to record any more hours but it's always good to practice more!</p>
+        <p>You can book another driving test straight away, but we've been told that you will need to wait at least 7 days between your last driving test and the next test.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">I'm over 25 and a learner - do I need to use Roundtrip?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>You can but it's not a requirement to complete a logbook.</p>
+        <p><a href="http://www.rms.nsw.gov.au/roads/licence/driver/learner/index.html">Have a look at the rules.</a> If you're over 25 and a learner driver you don't need to complete a logbook and you can attempt your driving test whenever you feel ready.</p>
+        <p>You can choose to use Roundtrip or a paper log book to help with your driving practice if you like, but there's no need to submit it before you take your driving test.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Will my personal information be shared?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Check out <a href="privacy.html">our app's privacy statement</a> for all the detailed privacy information.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Is Roundtrip protected against security and identity fraud?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>The Roundtrip app includes security measures to make sure your personal information and identity are protected.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">What happens if someone enters false information into Roundtrip?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>If false entries are made in a digital or paper log book, learner drivers and supervisors can face heavy penalties under the Road and Transport Legislation or Criminal Law.</p>
+        <p>Any hours found to be recorded falsely will be discarded. In some cases you may be fined for each fraudulent entry.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="nsw">
+      <button class="faq-q" onclick="toggleFaq(this)">Does Roundtrip take into account the 3-for-1 hours with a driving instructor?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p><strong>Yes.</strong> Roundtrip will calculate the 3-for-1 hours bonus if you're driving under the supervision of a driving instructor licensed in NSW.</p>
+        <p>Just make sure to select the 3-for-1 structured lesson option when recording the trip and before signing off on it. Note your supervisor will need to be entered as an accredited instructor to see this option.</p>
+        <p>Although it's fine to be supervised by an interstate instructor, the 3-for-1 hours bonus only applies for driving instructors licensed in NSW - if the instructor doesn't hold a valid NSW instructor licence, you won't get the 3-for-1 bonus.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL -->
+  <div class="faq-category" data-category="technical">
+    <div class="faq-category-title">Technical Issues and Troubleshooting</div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">What type of device do I need to use a digital log book?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>You'll need an iOS mobile device (e.g., iPhone, iPod Touch) or Android mobile device.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">What if I lose my phone, or get a new one?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>We keep a backup of the data you last saved to our servers.</p>
+        <p>All your settings and driving data are held on our servers, so if you get a new phone for any reason you'll be able to restore your driving data when you download the app and log in.</p>
+        <p>Note - you will need an active internet connection in order to save your data to our servers. You can check the settings view in the app to see if you've successfully connected to the server. Look for the green thumbs up icon. 👍</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">Will the app automatically update when a new version is released?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>This depends on the settings on your phone.</p>
+        <p>If you have set your phone to automatically update, your app will update as soon as a new version is available.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">How can I tell if my details or supervisor/instructor details are correct?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>If you don't get any error messages when entering this information, the details are correct and have been validated against the TfNSW systems.</p>
+        <p>Having issues? Make sure to check that the data entered is correct - it's easy sometimes to miss a number. Also make sure you're entering the card stock number on the back of the card.</p>
+        <p>If you've entered your details correctly and you're still getting an error, then call Service NSW on 13 77 88 to double check the licence is valid and then <a href="mailto:roundtrip@eatmorepixels.com.au">send us a message</a>.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">Where is the stock number on my licence?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>The stock number is on the back of your licence card, in the top left corner.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I don't have a licence card yet so I don't have a stock number - what do I do?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>When you pass your driver knowledge test, you might be given a paper licence as a temporary licence until your plastic licence card arrives in the mail.</p>
+        <p>If you want to register for a digital log book before you get your licence card, just leave the stock number field blank. You can still record your practice drives in the app.</p>
+        <p>Once your licence card arrives, you can go back to the app and enter your stock number. You need to do this within 30 days of registering with the app.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I don't know what my licence expiry date is - what do I do?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>When you pass your driver knowledge test, you might be given a paper licence as a temporary licence until your plastic licence card arrives in the mail.</p>
+        <p>If you want to register for a digital log book before you get your licence card, just leave the expiry date field blank. You can still record your practice drives in the app.</p>
+        <p>Once your licence card arrives, you can go back to the app and enter your expiry date.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I have a digital licence with no card stock number - how do I verify?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Your digital licence has a card number but not the card stock number. You should have been issued with a physical licence, even if you opt in for a digital one, so make sure to use the card stock number found on your physical licence.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I can't log in to my Roundtrip - what should I do?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Make sure you have an active internet connection. Check your details to make sure they're correct.</p>
+        <p>If this doesn't work then <a href="mailto:roundtrip@eatmorepixels.com.au">send us a message</a>.</p>
+        <p>While waiting for a reply you can copy down any practice you do so you can enter it into the app manually later.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">Roundtrip is crashing - what should I do?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Make sure you have the latest version of the app installed. Open the App Store on your phone and check to see if there is an update available.</p>
+        <p>If this doesn't work then <a href="mailto:roundtrip@eatmorepixels.com.au">send us a message</a>.</p>
+        <p>While waiting for a reply you can copy down any practice you do so you can enter it into the app manually later.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I've been trying to use the app to record my hours, but it's saying verification failed each time. How do I get the app to verify my hours?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Verification usually fails because one or more of the details you entered in your profile are incorrect. Each time you record hours, your licence details are checked with TfNSW, so if what you enter doesn't match, you'll see an error. Please check your details to make sure you've entered them correctly.</p>
+        <p>If you've entered your details correctly and you're still getting an error, then call Service NSW on 13 77 88 to check your licence details are valid and then <a href="mailto:roundtrip@eatmorepixels.com.au">send us a message</a>.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">The app is telling me my supervisor credentials are invalid - what do I do?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Make sure you've entered the correct details for your supervisor. Double check the surname, licence number, expiry date and stock number.</p>
+        <p>You'll still be able to record your practice drive, but it will be 'unverified'. Once you enter the supervisor's details and tap 'Done', then tap 'Continue as unverified'.</p>
+        <p>If your supervisor has entered their details correctly and you're still getting an error, then call Service NSW on 13 77 88 to check your licence details are valid and then <a href="mailto:roundtrip@eatmorepixels.com.au">send us a message</a>.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">What happens if the GPS signal drops out or fails while I'm recording a drive?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Don't worry, if the GPS signal is not available the drive can continue and will still be recorded. It might mean that not all fields will be automatically filled (for example the start or end suburb might be missing), but you can enter these details manually once you've finished your drive.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">I can't sign off on my Hazard Perception Test because of a "Missing licence issue date"<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>In your logbook view it might say "Missing licence issue date". If this is the case then you need to add your licence issue date to your profile. To do this, on the Logbook view in the app, tap <strong>Edit</strong> in the top right corner and add your Licence Issue Date. You should be able to sign off your HPT declaration if you have fulfilled the requirements.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-category="technical">
+      <button class="faq-q" onclick="toggleFaq(this)">How do I delete my account?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>It's easy to delete your account if you haven't submitted your logbook. Simply go to the settings tab and the account settings section and look for the red text that says <strong>Delete Roundtrip Account</strong>. Tap that and follow the instructions to delete your account. If you have submitted your logbook we can still delete your account however we are required to keep a copy of your trip data for auditing purposes by TfNSW. <a href="mailto:roundtrip@eatmorepixels.com.au">Email us</a> if you have any questions.</p>
+      </div></div>
+    </div>
+  </div>
+
+</main>
+
+<footer id="about">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <span class="logo-name">Roundtrip</span>
+      </div>
+      <p class="footer-tagline">Australia's official learner logbook platform. Built on research. Designed for safety.</p>
+      <div class="footer-contact">
+        A product of <a href="https://www.eatmorepixels.com.au">Eat More Pixels Pty Ltd</a><br>
+        Brisbane, Australia · Since 2015
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Roundtrip</h4>
+      <ul>
+        <li><a href="index.html#overview">Overview</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#features">For Government</a></li>
+        <li><a href="index.html#migration">Migration</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#contact">Talk to us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.eatmorepixels.com.au">About Eat More Pixels</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-nsw">
+      <h4>🚗 NSW learner driver?</h4>
+      <p>Find FAQs and support resources for the Roundtrip app in NSW.</p>
+      <a href="support.html">NSW support page →</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <p>© Eat More Pixels Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+const searchInput = document.getElementById('search');
+const clearBtn = document.getElementById('clear-search');
+const noResults = document.getElementById('no-results');
+
+searchInput.addEventListener('input', filterFaqs);
+
+function filterFaqs() {
+  const q = searchInput.value.toLowerCase().trim();
+  clearBtn.style.display = q ? 'block' : 'none';
+  const items = document.querySelectorAll('.faq-item');
+  let anyVisible = false;
+  items.forEach(item => {
+    if (!q) { item.style.display = ''; return; }
+    const match = item.textContent.toLowerCase().includes(q);
+    item.style.display = match ? '' : 'none';
+    if (match) { anyVisible = true; item.classList.add('open'); }
+    else { item.classList.remove('open'); }
+  });
+  document.querySelectorAll('.faq-category').forEach(cat => {
+    if (!q) { cat.style.display = ''; return; }
+    cat.style.display = [...cat.querySelectorAll('.faq-item')].some(i => i.style.display !== 'none') ? '' : 'none';
+  });
+  noResults.style.display = q && !anyVisible ? 'block' : 'none';
+}
+
+clearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  filterFaqs();
+  searchInput.focus();
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    noResults.style.display = 'none';
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.faq-category').forEach(cat => {
+      cat.style.display = (filter === 'all' || cat.dataset.category === filter) ? '' : 'none';
+    });
+    document.querySelectorAll('.faq-item').forEach(i => { i.style.display = ''; i.classList.remove('open'); });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy — Roundtrip NSW Learner Logbook</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',Helvetica,sans-serif;background:#fff;color:#111;font-size:16px;line-height:1.6;}
+:root{--acc:#f5c400;--acc2:#d4a800;--bg:#ffffff;--bg2:#f5f5f5;--txt:#0a0a0a;--txt2:#666;--txt3:#999;--bdr:rgba(0,0,0,0.07);}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 52px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;display:block;}
+.logo-name{font-size:17px;font-weight:700;color:#0a0a0a;letter-spacing:-0.5px;}
+.nav-center{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-center a{text-decoration:none;color:#666;font-size:14px;font-weight:500;padding:6px 13px;border-radius:8px;transition:background .15s,color .15s;}
+.nav-center a:hover{background:#f5f5f5;color:#0a0a0a;}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-sep{width:1px;height:20px;background:rgba(0,0,0,0.07);margin:0 4px;}
+.nav-nsw{text-decoration:none;font-size:13px;font-weight:600;color:#0a0a0a;padding:7px 14px;border-radius:50px;background:#f5c400;border:1.5px solid #f5c400;transition:all .15s;white-space:nowrap;}
+.nav-nsw:hover{background:#c49000;border-color:#c49000;}
+.nav-cta{background:#0a0a0a;color:#fff !important;padding:7px 16px !important;border-radius:50px !important;font-weight:600 !important;font-size:14px;white-space:nowrap;}
+.nav-cta:hover{background:#2a2a2a !important;color:#fff !important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:#0a0a0a;border-radius:2px;transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
+.mobile-menu{display:none;position:sticky;top:60px;z-index:99;background:#fff;border-bottom:1px solid rgba(0,0,0,0.07);padding:8px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:#0a0a0a;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.07);}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu-nsw{color:#0a0a0a !important;font-size:14px !important;background:#f5c400;border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
+
+.page-wrap{max-width:1120px;margin:0 auto;}
+.hero-inner-wrap{max-width:1120px;margin:0 auto;}
+.hero{background:var(--bg2);padding:64px 48px 52px;border-bottom:1px solid var(--bdr);}
+.hero-inner{max-width:720px;}
+.hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:8px;}
+.hero-meta{font-size:14px;color:var(--txt3);}
+
+.main{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
+
+.intro{font-size:15px;color:#333;line-height:1.8;margin-bottom:40px;padding:20px 24px;background:var(--bg2);border-radius:12px;}
+
+/* Section heading */
+.section-title{
+  font-size:17px;font-weight:700;letter-spacing:-0.3px;
+  margin-bottom:24px;display:flex;align-items:center;gap:10px;
+}
+.section-num{
+  background:var(--acc);color:#111;
+  width:26px;height:26px;border-radius:6px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;flex-shrink:0;
+}
+
+/* Clause rows */
+.clause{
+  display:flex;gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid var(--bdr);
+}
+.clause:last-child{border-bottom:none;}
+.clause-label{
+  font-size:13px;font-weight:700;color:var(--acc2);
+  min-width:18px;flex-shrink:0;padding-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.clause-text{font-size:15px;color:#333;line-height:1.8;}
+.clause-text a{color:#111;font-weight:600;}
+
+footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--bdr);}
+.footer-top{display:flex;gap:52px;max-width:1120px;margin:0 auto 48px;align-items:flex-start;}
+.footer-brand{max-width:260px;flex-shrink:0;}
+.footer-logo-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.footer-tagline{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:14px;}
+.footer-contact{font-size:13px;color:var(--txt3);}
+.footer-contact a{color:var(--txt2);text-decoration:none;font-weight:600;}
+.footer-col{flex:1;min-width:120px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col a{font-size:14px;color:var(--txt2);text-decoration:none;transition:color .15s;}
+.footer-col a:hover{color:var(--txt);}
+.footer-nsw{max-width:240px;flex-shrink:0;border:1.5px solid rgba(245,196,0,.5);border-radius:16px;padding:20px 22px;background:rgba(245,196,0,.08);}
+.footer-nsw h4{font-size:13.5px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.footer-nsw p{font-size:12.5px;color:var(--txt2);line-height:1.55;margin-bottom:12px;}
+.footer-nsw a{font-size:13px;font-weight:600;color:#0a0a0a;text-decoration:none;}
+.footer-btm{max-width:1120px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-btm p{font-size:12px;color:var(--txt3);}
+
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-center{display:none;}
+  .nav-right{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:48px 24px 40px;}
+  .main{padding:40px 20px 72px;}
+  footer{padding:48px 24px 32px;}
+  .footer-top{flex-wrap:wrap;gap:36px;}
+  .footer-brand{max-width:100%;}
+  .footer-col{min-width:130px;}
+  .footer-nsw{max-width:100%;width:100%;}
+  .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+    <span class="logo-name">Roundtrip</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html#overview">Overview</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#features">For Government</a></li>
+    <li><a href="index.html#migration">Migration</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Talk to us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <a href="support.html" class="nav-nsw">NSW Support</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#overview" onclick="closeMobileMenu()">Overview</a>
+  <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="index.html#platform" onclick="closeMobileMenu()">For Government</a>
+  <a href="index.html#migration" onclick="closeMobileMenu()">Migration</a>
+  <a href="index.html#research" onclick="closeMobileMenu()">Research</a>
+  <a href="index.html#contact" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+</div>
+
+<div class="hero"><div class="page-wrap hero-inner-wrap">
+  <div class="hero-inner">
+    <h1>Your Privacy</h1>
+    <p class="hero-meta">Last updated September 8, 2023</p>
+  </div>
+</div>
+</div>
+
+<main class="main">
+
+  <p class="intro">Roundtrip (App) is a third party app and has been developed by Eat More Pixels (Developer).</p>
+
+  <div class="section-title">
+    <span class="section-num">1</span> Privacy Statement
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">a.</span>
+    <p class="clause-text">Developer is collecting personal information about you and your supervising driver and any facilitator, including information provided to the Developer when installing and registering the App and the Data that you, your supervising driver and any facilitator enter, log, download and generate by or through the systems associated with the App into the App. The Data will be retained by the Developer and used in accordance with the Terms of Use and this Privacy Statement.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">b.</span>
+    <p class="clause-text">The App allows you and your supervising driver to view the Data (including personal information of each other and the facilitator) that is entered into the App.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">c.</span>
+    <p class="clause-text">Developer will collect the personal information that you provide on an optional basis, including your suburb, gender and age. The Developer will use this information to deliver improved customer service, advertising and will anonymise and aggregate the information for research purposes to improve road safety outcomes.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">d.</span>
+    <p class="clause-text">Developer will provide Transport for NSW (excluding the personal information that you provide on an optional basis) that may be used for the purposes of validating that you are an eligible learner driver, for validating the details of your supervising driver, to assess the logbook to verify the information recorded shows a minimum of 120 hours (20 hours at night) of completed on-road supervised driving experience, and for auditing purposes. The Data may be retained and used by Transport for NSW for driver licensing, motor vehicle and road transport safety purposes.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">e.</span>
+    <p class="clause-text">Transport for NSW may disclose the Data provided to it by the Developer to law enforcement agencies, interstate driver licensing agencies, or any other NSW government agency for use by those entities for the same purposes as Transport for NSW. Transport for NSW and other NSW government agencies may share the Data with their service providers (including auditors and legal advisers) for the purposes referred to above.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">f.</span>
+    <p class="clause-text">You consent to Transport for NSW validating your licence details and you warrant that you have obtained the consent of your supervising driver to Transport for NSW validating their respective licence details, with a TRUE or FALSE response to the Developer to ensure the surname, driver licence number, expiry date and driver licence stock number entered into the App are correct and that the learner driver and/or supervising driver are eligible.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">g.</span>
+    <p class="clause-text">Your personal information may be disclosed to the Developer's third party provider, for the purposes of providing a cloud service and encrypting, saving and storing your personal information.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">h.</span>
+    <p class="clause-text">Developer may store Data in offshore hosted databases for the purposes of providing the App. The Data is currently stored at Google Firebase data centres which are offered globally around the world with no dependence on a specific location.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">i.</span>
+    <p class="clause-text">Providing your personal information and the provision of personal information of your supervising driver and any facilitator is voluntary but if you do not complete the required fields (excluding optional fields) you will not be able to use the App.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">j.</span>
+    <p class="clause-text">Prior to the commencement of a supervised driving session or a Safer Driver Course, you must show your supervising driver and any facilitator respectively, this Privacy Statement and the Terms of Use and obtain the consent of your supervising driver and any facilitator to the provision of their personal information to the Developer and for their personal information to be used in accordance with the Terms of Use and disclosed as specified in this Privacy Statement.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">k.</span>
+    <p class="clause-text">Other than as described in this Privacy Statement the Developer will not disclose your personal information without your consent unless authorised by law.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">l.</span>
+    <p class="clause-text">You can make a privacy complaint by contacting the Developer as set out below. The Developer will respond to that complaint within seven (7) days of receipt and will take all reasonable steps to make a decision as to the complaint within thirty (30) days of receipt of the complaint. In the event you are not satisfied with the resolution provided, you can make a complaint to the Information Commissioner at <a href="https://www.oaic.gov.au" target="_blank">www.oaic.gov.au</a>. The Developer is also required to notify Transport for NSW of any privacy complaint.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">m.</span>
+    <p class="clause-text">Your personal information will be held by the Developer and you can contact the Developer on the Roundtrip app website to access or correct it.</p>
+  </div>
+
+  <div class="clause">
+    <span class="clause-label">n.</span>
+    <p class="clause-text">The Data (excluding personal information) is owned by the Developer.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <span class="logo-name">Roundtrip</span>
+      </div>
+      <p class="footer-tagline">Australia's official learner logbook app. Built on research. Designed for safety.</p>
+      <div class="footer-contact">
+        A product of <a href="https://www.eatmorepixels.com.au">Eat More Pixels Pty Ltd</a><br>
+        Brisbane, Australia · Since 2015
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Roundtrip</h4>
+      <ul>
+        <li><a href="index.html#overview">Overview</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#features">For Government</a></li>
+        <li><a href="index.html#migration">Migration</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#contact">Talk to us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.eatmorepixels.com.au">About Eat More Pixels</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-nsw">
+      <h4>🚗 NSW learner driver?</h4>
+      <p>Find FAQs, supervisor guides, and support resources for the Roundtrip app in NSW.</p>
+      <a href="support.html">NSW support page →</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <p>© Eat More Pixels Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>

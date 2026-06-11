@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — Roundtrip NSW Learner Logbook</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',Helvetica,sans-serif;background:#fff;color:#111;font-size:16px;line-height:1.6;}
+:root{--acc:#f5c400;--acc2:#d4a800;--bg:#ffffff;--bg2:#f5f5f5;--txt:#0a0a0a;--txt2:#666;--txt3:#999;--bdr:rgba(0,0,0,0.07);}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 52px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;display:block;}
+.logo-name{font-size:17px;font-weight:700;color:#0a0a0a;letter-spacing:-0.5px;}
+.nav-center{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-center a{text-decoration:none;color:#666;font-size:14px;font-weight:500;padding:6px 13px;border-radius:8px;transition:background .15s,color .15s;}
+.nav-center a:hover{background:#f5f5f5;color:#0a0a0a;}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-sep{width:1px;height:20px;background:rgba(0,0,0,0.07);margin:0 4px;}
+.nav-nsw{text-decoration:none;font-size:13px;font-weight:600;color:#0a0a0a;padding:7px 14px;border-radius:50px;background:#f5c400;border:1.5px solid #f5c400;transition:all .15s;white-space:nowrap;}
+.nav-nsw:hover{background:#c49000;border-color:#c49000;}
+.nav-cta{background:#0a0a0a;color:#fff !important;padding:7px 16px !important;border-radius:50px !important;font-weight:600 !important;font-size:14px;white-space:nowrap;}
+.nav-cta:hover{background:#2a2a2a !important;color:#fff !important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:#0a0a0a;border-radius:2px;transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
+.mobile-menu{display:none;position:sticky;top:60px;z-index:99;background:#fff;border-bottom:1px solid rgba(0,0,0,0.07);padding:8px 20px 16px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:#0a0a0a;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.07);}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu-nsw{color:#0a0a0a !important;font-size:14px !important;background:#f5c400;border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
+
+.page-wrap{max-width:1120px;margin:0 auto;}
+.hero-inner-wrap{max-width:1120px;margin:0 auto;}
+.hero{background:var(--bg2);padding:64px 48px 52px;border-bottom:1px solid var(--bdr);}
+.hero-inner{max-width:720px;}
+.hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:8px;}
+.hero-meta{font-size:14px;color:var(--txt3);}
+
+.layout{display:grid;grid-template-columns:220px 1fr;gap:64px;max-width:1120px;margin:0 auto;padding:56px 48px 96px;align-items:start;}
+
+/* TOC */
+.toc{position:sticky;top:80px;}
+.toc h3{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:14px;}
+.toc ul{list-style:none;display:flex;flex-direction:column;gap:2px;}
+.toc a{font-size:13px;color:var(--txt2);text-decoration:none;padding:5px 10px;border-radius:7px;display:block;transition:all .15s;line-height:1.4;}
+.toc a:hover{background:var(--bg2);color:#111;}
+
+/* DOC */
+.intro{font-size:15px;color:#333;line-height:1.8;margin-bottom:40px;padding:20px 24px;background:var(--bg2);border-radius:12px;}
+
+.doc-section{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--bdr);scroll-margin-top:80px;}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;}
+
+.section-title{font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.section-num{background:var(--acc);color:#111;width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
+
+/* Definitions block */
+.definitions{background:var(--bg2);border-radius:12px;padding:20px 24px;margin:16px 0;}
+.def-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bdr);font-size:14.5px;color:#333;line-height:1.7;}
+.def-item:last-child{border-bottom:none;padding-bottom:0;}
+.def-term{font-weight:600;color:#111;min-width:90px;flex-shrink:0;}
+
+/* Clause rows */
+.clause{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--bdr);}
+.clause:last-child{border-bottom:none;}
+.clause-label{font-size:13px;font-weight:700;color:var(--acc2);min-width:22px;flex-shrink:0;padding-top:2px;}
+.clause-text{font-size:15px;color:#333;line-height:1.8;}
+.clause-text p{margin-bottom:10px;}
+.clause-text p:last-child{margin-bottom:0;}
+
+/* Sub-clauses (i, ii, iii) */
+.sub-clauses{margin-top:10px;display:flex;flex-direction:column;gap:8px;}
+.sub-clause{display:flex;gap:12px;}
+.sub-label{font-size:13px;font-weight:600;color:var(--txt2);min-width:26px;flex-shrink:0;padding-top:2px;}
+.sub-text{font-size:14.5px;color:#333;line-height:1.75;}
+
+/* Sub-section heading (You must / We May) */
+.sub-heading{font-size:14px;font-weight:700;color:#111;margin:16px 0 8px;padding-top:8px;border-top:1px solid var(--bdr);}
+
+footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--bdr);}
+.footer-top{display:flex;gap:52px;max-width:1120px;margin:0 auto 48px;align-items:flex-start;}
+.footer-brand{max-width:260px;flex-shrink:0;}
+.footer-logo-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+.footer-tagline{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:14px;}
+.footer-contact{font-size:13px;color:var(--txt3);}
+.footer-contact a{color:var(--txt2);text-decoration:none;font-weight:600;}
+.footer-col{flex:1;min-width:120px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt3);margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col a{font-size:14px;color:var(--txt2);text-decoration:none;transition:color .15s;}
+.footer-col a:hover{color:var(--txt);}
+.footer-nsw{max-width:240px;flex-shrink:0;border:1.5px solid rgba(245,196,0,.5);border-radius:16px;padding:20px 22px;background:rgba(245,196,0,.08);}
+.footer-nsw h4{font-size:13.5px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.footer-nsw p{font-size:12.5px;color:var(--txt2);line-height:1.55;margin-bottom:12px;}
+.footer-nsw a{font-size:13px;font-weight:600;color:#0a0a0a;text-decoration:none;}
+.footer-btm{max-width:1120px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.footer-btm p{font-size:12px;color:var(--txt3);}
+
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-center{display:none;}
+  .nav-right{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:48px 24px 40px;}
+  .layout{grid-template-columns:1fr;padding:40px 20px 72px;gap:0;}
+  .toc{display:none;}
+  footer{padding:48px 24px 32px;}
+  .footer-top{flex-wrap:wrap;gap:36px;}
+  .footer-brand{max-width:100%;}
+  .footer-col{min-width:130px;}
+  .footer-nsw{max-width:100%;width:100%;}
+  .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+    <span class="logo-name">Roundtrip</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html#overview">Overview</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#features">For Government</a></li>
+    <li><a href="index.html#migration">Migration</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Talk to us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <a href="support.html" class="nav-nsw">NSW Support</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#overview" onclick="closeMobileMenu()">Overview</a>
+  <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="index.html#platform" onclick="closeMobileMenu()">For Government</a>
+  <a href="index.html#migration" onclick="closeMobileMenu()">Migration</a>
+  <a href="index.html#research" onclick="closeMobileMenu()">Research</a>
+  <a href="index.html#contact" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+</div>
+
+<div class="hero"><div class="page-wrap hero-inner-wrap">
+  <div class="hero-inner">
+    <h1>Terms &amp; Conditions of use for Roundtrip</h1>
+    <p class="hero-meta">Last updated September 8, 2023</p>
+  </div>
+</div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <ul>
+      <li><a href="#s1">1. General Terms</a></li>
+      <li><a href="#s2">2. Use of the App</a></li>
+      <li><a href="#s3">3. Limitations on Use</a></li>
+      <li><a href="#s4">4. Safety Disclaimer and Warning</a></li>
+      <li><a href="#s5">5. Data</a></li>
+      <li><a href="#s6">6. Fee and Subscription</a></li>
+      <li><a href="#s7">7. Promotions</a></li>
+      <li><a href="#s8">8. Logbook Legal Requirements</a></li>
+      <li><a href="#s9">9. Intellectual Property Rights</a></li>
+      <li><a href="#s10">10. Governing Law and Jurisdiction</a></li>
+      <li><a href="#s11">11. Privacy Statement</a></li>
+    </ul>
+  </aside>
+
+  <article>
+    <p class="intro">Please carefully read these terms and conditions (<strong>Terms of Use</strong>) of use for Roundtrip (<strong>App</strong>).<br><br>This App is a third party app and has been developed by Eat More Pixels (Developer). Transport for NSW (TfNSW) has endorsed this App for use by NSW learner drivers as an alternative to using a manual Learner Driver Log Book. The App is linked to the Transport for NSW licensing data to verify learner and supervising driver eligibility and to submit completed learner driver logbook requirements to Transport for NSW. The completed hours and learning goals must be confirmed and submitted to Transport for NSW at least 48 hours before the date of a driving test.</p>
+
+    <!-- 1 -->
+    <div class="doc-section" id="s1">
+      <div class="section-title"><span class="section-num">1</span> General Terms</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">By installing, registering or using the App, you agree to be bound by these Terms of Use. Your use of the App constitutes your acceptance of these Terms of Use, which takes effect each time you use the App. If you do not agree with these Terms of Use, you must cease using the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <div class="clause-text">
+          <p>The App is owned and provided by the Developer. The Developer reserves the right to amend, modify, add, delete and make corrections to the Terms of Use or to update the App to incorporate new Terms of Use, at any time without notice. All changes are effective from the date they are posted and your continued use of the App will constitute your acceptance of the variation of the Terms of Use. It is your responsibility to read these Terms of Use each time you use the App, to ensure you are aware of any changes to them.</p>
+          <p>In these Terms of Use:</p>
+          <div class="definitions">
+            <div class="def-item"><span class="def-term">'user', 'you', 'your(s)'</span><span>refers to the learner driver who installs, registers, accesses and/or uses the App.</span></div>
+            <div class="def-item"><span class="def-term">'we', 'us', 'our'</span><span>means the Developer.</span></div>
+            <div class="def-item"><span class="def-term">'supervising driver'</span><span>refers to all your supervising drivers including coaches at a Safer Driver Course and instructors.</span></div>
+            <div class="def-item"><span class="def-term">'facilitator'</span><span>refers to the in-class room facilitator at a Safer Driver Course.</span></div>
+            <div class="def-item"><span class="def-term">'App'</span><span>means Roundtrip including the associated technology, system, database and data storage arrangements.</span></div>
+            <div class="def-item"><span class="def-term">'Data'</span><span>means all information, including personal information, in connection with the use of the App and includes (without limitation) journey data and hours and other information as entered, logged, downloaded and generated by or through the systems associated with the App including the logbook, reports, emails and SMSs in any form.</span></div>
+            <div class="def-item"><span class="def-term">'the Act'</span><span>means the Road Transport Act 2013 (NSW).</span></div>
+            <div class="def-item"><span class="def-term">'the Legislation'</span><span>means the regulations made under the Act, including the Road Transport (Driver Licensing) Regulation 2008 and Road Rules 2014 (NSW).</span></div>
+            <div class="def-item"><span class="def-term">'mobile device'</span><span>means a mobile phone or tablet.</span></div>
+            <div class="def-item"><span class="def-term">Other expressions</span><span>as defined in the Act and Legislation have the meaning as stated in those laws. A reference to any legislation or regulation includes all delegated legislation made under it and amendments, consolidations, replacements or re-enactments of any of them.</span></div>
+            <div class="def-item"><span class="def-term">Interpretation</span><span>Specifying anything after the words 'include' or 'for example' or similar expressions will not limit what is included unless there is express wording to the contrary.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="doc-section" id="s2">
+      <div class="section-title"><span class="section-num">2</span> Use of the App</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <div class="clause-text">
+          <p>To use the App you must:</p>
+          <div class="sub-clauses">
+            <div class="sub-clause"><span class="sub-label">i.</span><span class="sub-text">be a holder of a New South Wales class C learner licence aged 16 years or over;</span></div>
+            <div class="sub-clause"><span class="sub-label">ii.</span><span class="sub-text">if you are under the age of 18 years, have the consent and permission of your parent or guardian to use the App and agree to these Terms of Use;</span></div>
+            <div class="sub-clause"><span class="sub-label">iii.</span><span class="sub-text">register to use the App; and</span></div>
+            <div class="sub-clause"><span class="sub-label">iv.</span><span class="sub-text">update it when a new release is available. This will ensure that you have the latest version of the app that complies with the Act, the Legislation and Transport for NSW's requirements.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <div class="clause-text">
+          <p>You may use the App to;</p>
+          <div class="sub-clauses">
+            <div class="sub-clause"><span class="sub-label">i.</span><span class="sub-text">Enter, update and view your driving hours data and vehicle details;</span></div>
+            <div class="sub-clause"><span class="sub-label">ii.</span><span class="sub-text">View information and material provided by us associated with the digital logbook;</span></div>
+            <div class="sub-clause"><span class="sub-label">iii.</span><span class="sub-text">Enter the details of one or more supervising driver and/or vehicle; and</span></div>
+            <div class="sub-clause"><span class="sub-label">iv.</span><span class="sub-text">Enter the details of a completed Safer Driver Course and the respective facilitator.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <div class="clause-text">
+          <p>You may not:</p>
+          <div class="sub-clauses">
+            <div class="sub-clause"><span class="sub-label">i.</span><span class="sub-text">use the App in any way that breaches any applicable local, national or international law or regulation;</span></div>
+            <div class="sub-clause"><span class="sub-label">ii.</span><span class="sub-text">use the App in any way that is unlawful or fraudulent, or has any unlawful or fraudulent purpose or effect;</span></div>
+            <div class="sub-clause"><span class="sub-label">iii.</span><span class="sub-text">rent, lend, sell, redistribute or sublicense the App;</span></div>
+            <div class="sub-clause"><span class="sub-label">iv.</span><span class="sub-text">copy, decompile, reverse engineer, disassemble, attempt to derive the source code of, modify, or create derivative works the App;</span></div>
+            <div class="sub-clause"><span class="sub-label">v.</span><span class="sub-text">interfere with, damage or disrupt any part of the App, or any equipment or network on which any data collected via the App is stored;</span></div>
+            <div class="sub-clause"><span class="sub-label">vi.</span><span class="sub-text">Use the App for commercial or other non personal purposes without our specific written consent.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">You warrant that you have shown your supervising driver these Terms of Use and the Privacy Statement and that you have obtained the consent of your supervising driver to the use of this App, to entering their driver licence details into the App prior to the commencement of a supervised driving session and to you having access to the Data (including their personal information) which is saved in the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">e.</span>
+        <p class="clause-text">You warrant that you have shown any facilitator (of a Safer Driver Course that you have completed) these Terms of Use and the Privacy Statement and that you have obtained the consent of the facilitator to the use of this App, to enter their name into the App and to you having access to the Data (including their personal information) which is saved in the App.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="doc-section" id="s3">
+      <div class="section-title"><span class="section-num">3</span> Limitations on Use</div>
+      <p style="font-size:15px;color:#333;margin-bottom:12px;font-weight:600;">You must:</p>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">not touch or leave the mobile device in a cradle fixed to the vehicle while driving, including when the vehicle is stationary but not parked.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">not use the App after activation while driving, including when the vehicle is stationary but not parked. You must park the vehicle out of the line of traffic to use the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <p class="clause-text">not use the App in any unlawful manner, for any unlawful purpose, or in any manner inconsistent with these Terms of Use. Including hacking into or inserting malicious code, virus of any description or harmful data, into the App and the Data or doing any act to unlawfully delete or otherwise misuse Data;</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">not use the App in any way that could damage, disable, overburden, impair or compromise the App and the Data;</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">e.</span>
+        <p class="clause-text">not enable or permit any other person, electronic application or system to access or use your Data through the App.</p>
+      </div>
+      <p style="font-size:15px;color:#333;margin:20px 0 12px;font-weight:600;">We May:</p>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">Collect and use personal data and related information in accordance with our Privacy Statement;</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">Collect and use technical data and related information, including but not limited to information about your smart phone device, system application software, and peripherals, which is gathered periodically to facilitate the provision and updating of the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <p class="clause-text">Withdraw the use of the App, on a temporary, or permanent basis where we in our absolute discretion believe there may have been a breach of any obligation under this agreement;</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">Withdraw the App from use by the public for any reason whatsoever;</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">e.</span>
+        <p class="clause-text">Bring legal proceedings against you for reimbursement of all costs on an indemnity basis resulting from a breach of this agreement.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="doc-section" id="s4">
+      <div class="section-title"><span class="section-num">4</span> Safety Disclaimer and Warning</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">The App offers driving data summary and practice suggestions designed for informational and education purposes only.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">You should not rely on the information in the App as a substitute for driving supervision or advice from supervisors and driving instructors.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <p class="clause-text">Developer does not in any way guarantee or warrant the accuracy, completeness, or usefulness of any content found in the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">Developer assumes no responsibility for injuries suffered while following the practice suggestions and the Developer shall not be held liable for any damages, circumstances, conditions or injuries that may occur, directly or indirectly, from engaging in any activities, suggestions or ideas presented in the App.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="doc-section" id="s5">
+      <div class="section-title"><span class="section-num">5</span> Data</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">By using the App, you warrant that all Data entered by you using the App is true, accurate and complete.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">You agree to be responsible for your own use of the App and you warrant that the Data in the App and your logbook is complete and accurate.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <div class="clause-text">
+          <p>You agree that:</p>
+          <div class="sub-clauses">
+            <div class="sub-clause"><span class="sub-label">i.</span><span class="sub-text">we have no obligation to check, verify or manage the entry of your Data and your logbook created when using the App and that this is your responsibility;</span></div>
+            <div class="sub-clause"><span class="sub-label">ii.</span><span class="sub-text">you have entered all Data and completed your logbook and completed all other requirements in accordance with the Act, the Legislation and Transport for NSW's requirements;</span></div>
+            <div class="sub-clause"><span class="sub-label">iii.</span><span class="sub-text">the Data (excluding personal information) is owned by the Developer; and</span></div>
+            <div class="sub-clause"><span class="sub-label">iv.</span><span class="sub-text">the App allows you and your supervising driver to view the Data (including personal information of each other and any facilitator) that is entered into the App.</span></div>
+            <div class="sub-clause"><span class="sub-label">v.</span><span class="sub-text">The material displayed on or made available to you via your use of the App is provided without any guarantees, conditions or warranties as to its accuracy;</span></div>
+            <div class="sub-clause"><span class="sub-label">vi.</span><span class="sub-text">Subject to any obligations implied by law and which cannot be excluded, we are not liable to you or any user of the App for any losses, damages, liabilities, claims and expenses whatsoever, whether direct, indirect or consequential, arising out of or referable to or use or access to the App, howsoever caused, whether in contract, tort or otherwise.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="doc-section" id="s6">
+      <div class="section-title"><span class="section-num">6</span> Fee and Subscription</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">The App is supported by advertising and sponsorship revenue. Therefore, the App is provided, per the terms of this Agreement, without an additional fee unless you have activated certain service(s) by purchasing subscription(s) to that service(s) (the "Subscription Service(s)").</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">A subscription functions as an "in-app" purchase option, which enables certain service(s) or parts of the App. Subscriptions renew on a periodic basis (as designated by Roundtrip) unless you indicate and request non-renewal through the applicable app store(s). Subscription payments will be processed by Roundtrip or a participating mobile app provider, such as Apple iTunes or Google Play, from which you originally downloaded the application. You may access the applicable "in-app" purchase rules and policies directly from the applicable app store(s). Additional terms or conditions may apply to a subscription at the time of order or renewal.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <p class="clause-text">The Developer makes no guarantee that it will continue providing any of the specific services listed on its in-App payment screen throughout the term of your subscription. It is possible that certain items from the Subscription Services will become free features, or that they will be removed from the App entirely. Developer may also add new items to the Subscription Services throughout your subscription term.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">Please note that any payment terms presented to you in the process of using or signing up for a Subscription Service are deemed part of this Terms of Use.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">e.</span>
+        <p class="clause-text">In Developer's continued assessment of the Subscription Services, the Developer may from time to time, with respect to any or all of our users, experiment with or otherwise offer certain features or other elements of the Services, including promotional features, user interfaces, plans, pricing, and advertisements. You acknowledge that the Developer may do so in the Developer's sole discretion at any time without notice.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">f.</span>
+        <p class="clause-text">You agree that the Developer will not be liable to you for any modification, suspension, or discontinuation of the Services, although if you subscribe to the Subscription Services and the Developer suspends or discontinues your subscription to the Subscription Services. The Developer may, in the Developer's sole discretion, provide you with a credit, refund, discount or other form of consideration (for example, Developer may credit additional days of service to your account). However, if the Developer terminates your account or suspends or discontinues your access to Services due to your violation of these Terms of Use, then you will not be eligible for any such credit, refund, discount or other consideration.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">g.</span>
+        <p class="clause-text">Please note that if you purchase a subscription through Apple iTunes, Google Play, or the App, the sale is final, and we will not provide a refund. Your purchase will additionally be subject to Apple's or Google's applicable payment policy, respectively, which also may not provide for refunds.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="doc-section" id="s7">
+      <div class="section-title"><span class="section-num">7</span> Promotions</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">Any promotion code or offer provided by the Developer may not be used in conjunction with any other promotion code or offer, past or present. Introductory offers are only available to new users of the Subscription Services (who has never purchased a subscription), except where expressly stated otherwise. Previous users or trial users of the Subscription Services do not qualify as a new user.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">Any free trial or other promotion that provides access to a Subscription Service must be used within the specified time of the trial. You must stop using a Subscription Service before the end of the trial period in order to avoid being charged for that Subscription Service. Unless otherwise specified, trial offers are one-time only for new users of the Subscription Services. Additional terms and limitations may apply to trial offers and promotions and will be explained in the App. Any such additional terms and limitations are deemed part of this Terms of Use.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="doc-section" id="s8">
+      <div class="section-title"><span class="section-num">8</span> Logbook legal requirements under the Act and the Legislation</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <div class="clause-text">
+          <p>We make no representation, warranty or endorsement of any kind that by using the App you will:</p>
+          <div class="sub-clauses">
+            <div class="sub-clause"><span class="sub-label">i.</span><span class="sub-text">achieve your mandatory logbook requirements; or</span></div>
+            <div class="sub-clause"><span class="sub-label">ii.</span><span class="sub-text">automatically satisfy all of the requirements in respect of a logbook, the Act and the Legislation.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">We and Transport for NSW reserve the right to verify the accuracy of the Data provided and that the entries have been properly entered and maintained by you and your supervising driver and any facilitator.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="doc-section" id="s9">
+      <div class="section-title"><span class="section-num">9</span> Intellectual Property rights</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">We are the owner of all intellectual property rights in the App. These rights are protected by intellectual property laws and treaties around the world, and all such rights are reserved.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="doc-section" id="s10">
+      <div class="section-title"><span class="section-num">10</span> Governing Law And Jurisdiction</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">These Terms and Conditions including the Privacy Statement are governed by the laws in force in New South Wales, Australia. Each party submits to the exclusive jurisdiction of the courts of that State.</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="doc-section" id="s11">
+      <div class="section-title"><span class="section-num">11</span> Privacy Statement</div>
+      <div class="clause">
+        <span class="clause-label">a.</span>
+        <p class="clause-text">Developer is collecting personal information about you and your supervising driver and any facilitator, including information provided to the Developer when installing and registering the App and the Data that you, your supervising driver and any facilitator enter, log, download and generate by or through the systems associated with the App into the App. The Data will be retained by the Developer and used in accordance with the Terms of Use and this Privacy Statement.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">b.</span>
+        <p class="clause-text">The App allows you and your supervising driver to view the Data (including personal information of each other and the facilitator) that is entered into the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">c.</span>
+        <p class="clause-text">Developer will collect the personal information that you provide on an optional basis, including your suburb, gender and age. The Developer will use this information to deliver improved customer service, advertising and will anonymise and aggregate the information for research purposes to improve road safety outcomes.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">d.</span>
+        <p class="clause-text">Developer will provide Transport for NSW (excluding the personal information that you provide on an optional basis) that may be used for the purposes of validating that you are an eligible learner driver, for validating the details of your supervising driver, to assess the logbook to verify the information recorded shows a minimum of 120 hours (20 hours at night) of completed on-road supervised driving experience, and for auditing purposes. The Data may be retained and used by Transport for NSW for driver licensing, motor vehicle and road transport safety purposes.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">e.</span>
+        <p class="clause-text">Transport for NSW may disclose the Data provided to it by the Developer to law enforcement agencies, interstate driver licensing agencies, or any other NSW government agency for use by those entities for the same purposes as Transport for NSW. Transport for NSW and other NSW government agencies may share the Data with their service providers (including auditors and legal advisers) for the purposes referred to above.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">f.</span>
+        <p class="clause-text">You consent to Transport for NSW validating your licence details and you warrant that you have obtained the consent of your supervising driver to Transport for NSW validating their respective licence details, with a TRUE or FALSE response to the Developer to ensure the surname, driver licence number, expiry date and driver licence stock number entered into the App are correct and that the learner driver and/or supervising driver are eligible.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">g.</span>
+        <p class="clause-text">Your personal information may be disclosed to the Developer's third party provider, for the purposes of providing a cloud service and encrypting, saving and storing your personal information.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">h.</span>
+        <p class="clause-text">Developer may store Data in offshore hosted databases for the purposes of providing the App. The Data is currently stored at Google Firebase data centres which are offered globally around the world with no dependence on a specific location.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">i.</span>
+        <p class="clause-text">Providing your personal information and the provision of personal information of your supervising driver and any facilitator is voluntary but if you do not complete the required fields (excluding optional fields) you will not be able to use the App.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">j.</span>
+        <p class="clause-text">Prior to the commencement of a supervised driving session or a Safer Driver Course, you must show your supervising driver and any facilitator respectively, this Privacy Statement and the Terms of Use and obtain the consent of your supervising driver and any facilitator to the provision of their personal information to the Developer and for their personal information to be used in accordance with the Terms of Use and disclosed as specified in this Privacy Statement.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">k.</span>
+        <p class="clause-text">Other than as described in this Privacy Statement the Developer will not disclose your personal information without your consent unless authorised by law.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">l.</span>
+        <p class="clause-text">You can make a privacy complaint by contacting the Developer as set out below. The Developer will respond to that complaint within seven (7) days of receipt and will take all reasonable steps to make a decision as to the complaint within thirty (30) days of receipt of the complaint. In the event you are not satisfied with the resolution provided, you can make a complaint to the Information Commissioner at www.oaic.gov.au. The Developer is also required to notify Transport for NSW of any privacy complaint.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">m.</span>
+        <p class="clause-text">Your personal information will be held by the Developer and you can contact the Developer on the Roundtrip app website to access or correct it.</p>
+      </div>
+      <div class="clause">
+        <span class="clause-label">n.</span>
+        <p class="clause-text">The Data (excluding personal information) is owned by the Developer.</p>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <span class="logo-name">Roundtrip</span>
+      </div>
+      <p class="footer-tagline">Australia's official learner logbook app. Built on research. Designed for safety.</p>
+      <div class="footer-contact">
+        A product of <a href="https://www.eatmorepixels.com.au">Eat More Pixels Pty Ltd</a><br>
+        Brisbane, Australia · Since 2015
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Roundtrip</h4>
+      <ul>
+        <li><a href="index.html#overview">Overview</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#features">For Government</a></li>
+        <li><a href="index.html#migration">Migration</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#contact">Talk to us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.eatmorepixels.com.au">About Eat More Pixels</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-nsw">
+      <h4>🚗 NSW learner driver?</h4>
+      <p>Find FAQs, supervisor guides, and support resources for the Roundtrip app in NSW.</p>
+      <a href="support.html">NSW support page →</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <p>© Eat More Pixels Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>
