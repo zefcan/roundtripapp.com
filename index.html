@@ -234,10 +234,10 @@ nav{
 .plat-phones-wrap{position:relative;height:520px;}
 
 /* ── NSW LEARNER SECTION ── */
-.nsw-section{background:#fffbeb;border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
+.nsw-section{background:var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
 .nsw-inner-centered{max-width:640px;margin:0 auto;}
 .nsw-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:var(--txt);letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
-.nsw-sub{font-size:16px;color:var(--txt2);line-height:1.7;margin-bottom:28px;}
+.nsw-sub{font-size:16px;color:var(--txt);line-height:1.7;margin-bottom:28px;}
 .store-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
 .store-img-btn{display:inline-block;transition:opacity .15s;}
 .store-img-btn:hover{opacity:.85;}
@@ -265,6 +265,7 @@ nav{
   display:block;width:22px;height:2px;
   background:var(--txt);border-radius:2px;transition:all .25s;
 }
+.hamburger span:nth-child(2){transition:opacity 0s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
@@ -285,6 +286,10 @@ nav{
   background:var(--acc);border-radius:8px;
   padding:13px 12px !important;margin-top:4px;
   border-bottom:none !important;
+}
+.mobile-menu-cta{
+  background:#0a0a0a;color:#fff !important;border-radius:8px;
+  padding:13px 12px !important;margin-top:4px;border-bottom:none !important;
 }
 .reviews-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;}
 .rating-badge{
@@ -507,7 +512,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- NSW Banner -->
 <div class="banner">
   NSW learner driver or supervisor?
-  <a href="support.html">Visit the Roundtrip for NSW support page →</a>
+  <a href="nsw.html">Visit the Roundtrip for NSW support page →</a>
 </div>
 
 <!-- Nav -->
@@ -526,7 +531,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   </ul>
   <div class="nav-right">
     <div class="nav-sep"></div>
-    <a href="support.html" class="nav-nsw">NSW Support</a>
+    <a href="nsw.html" class="nav-nsw">NSW Support</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -535,11 +540,11 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <div class="mobile-menu" id="mobile-menu">
   <a href="#overview" onclick="closeMobileMenu()">Overview</a>
   <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="#platform" onclick="closeMobileMenu()">Government</a>
+  <a href="#features" onclick="closeMobileMenu()">Government</a>
   <a href="#migration" onclick="closeMobileMenu()">Migration</a>
   <a href="#research" onclick="closeMobileMenu()">Research</a>
-  <a href="#contact" onclick="closeMobileMenu()">Talk to us</a>
-  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+  <a href="#contact" class="mobile-menu-cta" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="nsw.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
 </div>
 
 <!-- Hero -->
@@ -573,7 +578,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- NSW Learner Section -->
 <section class="nsw-section">
   <div class="nsw-inner-centered">
-    <h2 class="nsw-h fade-up">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
+    <h2 class="nsw-h fade-up">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW.</h2>
     <p class="nsw-sub fade-up" style="transition-delay:.1s">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
     <div class="store-btns fade-up" style="transition-delay:.2s">
       <a href="https://apps.apple.com/au/app/roundtrip-nsw-learner-logbook/id1171287648" target="_blank" class="store-img-btn">
@@ -584,8 +589,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
       </a>
     </div>
     <div class="nsw-action-btns">
-      <a href="/faqs" class="nsw-action-btn">Browse FAQs</a>
-      <a href="support.html" class="nsw-action-btn nsw-action-btn-outline">Contact Support</a>
+      <a href="nsw.html" class="nsw-action-btn">FAQs and Support</a>
     </div>
   </div>
 </section>
@@ -879,7 +883,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
     <div class="footer-nsw">
       <h4>🚗 NSW learner driver?</h4>
       <p>Find FAQs, supervisor guides, and support resources for the Roundtrip app in NSW.</p>
-      <a href="support.html">NSW support page →</a>
+      <a href="nsw.html">NSW support page →</a>
     </div>
   </div>
   <div class="footer-btm">

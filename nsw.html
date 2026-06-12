@@ -28,6 +28,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .nav-nsw:hover{background:var(--acc2);border-color:var(--acc2);}
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0;}
 .hamburger span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px;transition:all .25s;}
+.hamburger span:nth-child(2){transition:opacity 0s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
@@ -36,12 +37,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .mobile-menu a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--bdr);}
 .mobile-menu a:last-child{border-bottom:none;}
 .mobile-menu-nsw{color:#0a0a0a !important;font-size:14px !important;background:var(--acc);border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
+.mobile-menu-cta{background:#0a0a0a;color:#fff !important;border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
 
 /* NSW SECTION */
-.nsw-section{background:#fffbeb;border-top:3px solid var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:56px 48px;text-align:center;}
+.nsw-section{background:var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
 .nsw-inner-centered{max-width:580px;margin:0 auto;}
-.nsw-h{font-size:clamp(22px,3vw,32px);font-weight:700;color:#111;letter-spacing:-1px;line-height:1.15;margin-bottom:12px;}
-.nsw-sub{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:22px;}
+.nsw-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#111;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px;}
+.nsw-sub{font-size:16px;color:var(--txt);line-height:1.7;margin-bottom:22px;}
 .store-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
 .store-img-btn{display:inline-block;transition:opacity .15s;}
 .store-img-btn:hover{opacity:.85;}
@@ -53,23 +55,41 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .nsw-action-btn-outline:hover{background:rgba(0,0,0,0.05);}
 
 /* PAGE */
-.page-wrap{max-width:1120px;margin:0 auto;}
-.hero-inner-wrap{max-width:1120px;margin:0 auto;}
-.hero{background:var(--bg2);padding:64px 48px 52px;text-align:center;border-bottom:1px solid var(--bdr);}
-.hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:8px;}
-.hero p{font-size:17px;color:var(--txt2);}
+.support-section{background:var(--bg2);padding:64px 48px;border-bottom:1px solid var(--bdr);}
+.support-inner{max-width:1120px;margin:0 auto;}
 .main{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
 
 /* CONTACT */
-.section-label{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:20px;}
+.section-label{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:20px;}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px;}
-.contact-card{border:1px solid var(--bdr);border-radius:16px;padding:28px;transition:border-color .2s;}
-.contact-card:hover{border-color:rgba(0,0,0,0.18);}
+.contact-card-wide{grid-column:1/-1;padding:36px 40px;}
+.form-card-inner{display:grid;grid-template-columns:1fr 2fr;gap:52px;align-items:start;}
+.form-card-intro h3{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px;}
+.form-card-intro p{font-size:14px;color:var(--txt2);line-height:1.65;}
+.card-step{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#0a0a0a;color:#fff;font-size:11px;font-weight:700;margin-bottom:12px;}
+.contact-card{border:1px solid var(--bdr);border-radius:16px;padding:28px;background:#fff;}
+.support-form{margin-top:20px;}
+.sf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sf-field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.sf-field label{font-size:12px;font-weight:600;color:#0a0a0a;}
+.sf-optional{font-weight:400;opacity:.55;}
+.sf-field input,.sf-field textarea,.sf-field select{padding:10px 12px;border-radius:8px;border:1.5px solid var(--bdr);background:#fff;font-size:13px;color:#0a0a0a;font-family:inherit;outline:none;transition:border-color .15s;width:100%;box-sizing:border-box;}
+.sf-field input:focus,.sf-field textarea:focus,.sf-field select:focus{border-color:#0a0a0a;}
+.sf-field textarea{resize:vertical;min-height:90px;}
+.sf-field [data-fs-error]:not(:empty){font-size:11px;color:#b91c1c;margin-top:2px;display:block;}
+.support-success{background:#0a0a0a;color:#fff;border-radius:10px;padding:16px 20px;text-align:center;font-size:14px;font-weight:500;margin-bottom:16px;}
 .contact-card .icon{font-size:28px;margin-bottom:12px;}
 .contact-card h3{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-0.2px;}
 .contact-card p{font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:16px;}
 .contact-card a{font-size:14px;font-weight:600;color:#111;text-decoration:none;display:inline-flex;align-items:center;gap:4px;}
 .contact-card a:hover{text-decoration:underline;}
+.verify-steps{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.verify-steps li{font-size:14px;color:var(--txt2);line-height:1.6;padding-left:28px;position:relative;}
+.verify-steps li::before{content:counter(step);counter-increment:step;position:absolute;left:0;width:20px;height:20px;border-radius:50%;background:#0a0a0a;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;top:2px;}
+.verify-steps{counter-reset:step;}
+.card-divider{border:none;border-top:1px solid var(--bdr);margin:24px 0;}
+.card-section-title{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-0.2px;}
+.card-section-body{font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:16px;}
 .contact-btn{display:inline-block;background:#111;color:#fff !important;padding:10px 22px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none !important;transition:background .15s;}
 .contact-btn:hover{background:#2a2a2a;text-decoration:none !important;}
 .form-section h2{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px;}
@@ -84,7 +104,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .submit-btn:hover{background:#2a2a2a;}
 
 /* FAQ DIVIDER */
-.faq-divider{margin:64px 0 48px;padding-top:64px;border-top:1px solid var(--bdr);}
+.faq-divider{margin:0 0 48px;}
 .faq-divider h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
 .faq-divider p{font-size:16px;color:var(--txt2);margin-bottom:28px;}
 
@@ -151,8 +171,12 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   .nsw-section{padding:48px 24px;}
   .nsw-action-btns{flex-direction:column;align-items:stretch;}
   .nsw-action-btn{text-align:center;}
+  .support-section{padding:48px 20px;}
   .main{padding:40px 20px 72px;}
   .contact-grid{grid-template-columns:1fr;}
+  .contact-card-wide{padding:28px;}
+  .form-card-inner{grid-template-columns:1fr;}
+  .sf-row{grid-template-columns:1fr;}
   footer{padding:48px 24px 32px;}
   .footer-top{flex-wrap:wrap;gap:36px;}
   .footer-brand{max-width:100%;}
@@ -160,6 +184,10 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   .footer-nsw{max-width:100%;width:100%;}
   .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
 }
+@keyframes car-right{from{left:-100px}to{left:110vw}}
+@keyframes car-left{from{right:-100px}to{right:110vw}}
+.car-piece{position:fixed;pointer-events:none;z-index:9999;line-height:1;display:inline-block;animation-timing-function:linear;animation-fill-mode:both;transform:scaleX(-1);}
+.car-piece.going-left{transform:scaleX(1);}
 </style>
 </head>
 <body>
@@ -179,7 +207,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   </ul>
   <div class="nav-right">
     <div class="nav-sep"></div>
-    <a href="support.html" class="nav-nsw">NSW Support</a>
+    <a href="nsw.html" class="nav-nsw">NSW Support</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -188,16 +216,16 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html#overview" onclick="closeMobileMenu()">Overview</a>
   <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="index.html#platform" onclick="closeMobileMenu()">Platform</a>
+  <a href="index.html#features" onclick="closeMobileMenu()">Government</a>
   <a href="index.html#migration" onclick="closeMobileMenu()">Migration</a>
   <a href="index.html#research" onclick="closeMobileMenu()">Research</a>
-  <a href="index.html#contact" onclick="closeMobileMenu()">Talk to us</a>
-  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+  <a href="index.html#contact" class="mobile-menu-cta" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="nsw.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
 </div>
 
 <section class="nsw-section">
   <div class="nsw-inner-centered">
-    <h2 class="nsw-h">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
+    <h2 class="nsw-h">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW.</h2>
     <p class="nsw-sub">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
     <div class="store-btns">
       <a href="https://apps.apple.com/au/app/roundtrip-nsw-learner-logbook/id1171287648" target="_blank" class="store-img-btn">
@@ -211,25 +239,92 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 </section>
 
 
-<main class="main" id="contact">
+<section class="support-section" id="contact">
+  <div class="support-inner">
+    <h2 class="section-label">Support</h2>
+    <div class="contact-grid">
 
-  <h2 class="section-label">Support</h2>
+      <div class="contact-card">
+        <div class="icon">❓</div>
+        <h3 class="card-section-title">Check the FAQs</h3>
+        <p class="card-section-body">Many common questions about using Roundtrip are answered in the FAQ section below. We cover everything from recording trips and submitting your logbook, to licence verification and technical troubleshooting. It's worth having a look before getting in touch.</p>
+        <a href="#faqs" class="contact-btn">Browse FAQs</a>
+      </div>
 
-  <div class="contact-grid">
-    <div class="contact-card">
-      <div class="icon">📧</div>
-      <h3>Email support</h3>
-      <p>Send us a message and we'll get back to you as soon as possible, usually within one business day.</p>
-      <a href="mailto:roundtrip@eatmorepixels.com.au" class="contact-btn">Email Us</a>
-    </div>
-    <div class="contact-card">
-      <div class="icon">📱</div>
-      <h3>Need to verify your licence?</h3>
-      <p>For licence verification issues, <strong>double check all your details are correct first.</strong> Then call Service NSW directly on 13 77 88 to check your details are valid. If you're still having issues, email us.</p>
-      <a href="tel:137788" class="contact-btn">13 77 88</a>
+      <div class="contact-card">
+        <div class="icon">📱</div>
+        <h3 class="card-section-title">Verify your licence</h3>
+        <p class="card-section-body">If you're having issues verifying your licence or your supervisor's licence, follow these steps:</p>
+        <ol class="verify-steps">
+          <li><strong>Double check all your details</strong> being entered into the app are correct.</li>
+          <li>Call <strong>Service NSW on 13 77 88</strong> to confirm your licence details are valid.</li>
+          <li>If you're still having issues, send us a message below.</li>
+        </ol>
+        <a href="tel:137788" class="contact-btn">Call 13 77 88</a>
+      </div>
+
+      <div class="contact-card contact-card-wide">
+        <div class="icon" style="margin-bottom:12px;">📧</div>
+        <div class="form-card-inner">
+          <div class="form-card-intro">
+            <h3>Still need help?</h3>
+            <p>Send us a message and we'll get back to you as soon as possible, usually within one business day.</p>
+          </div>
+          <div>
+            <div data-fs-success class="support-success" style="display:none;">Thanks! We'll be in touch soon.</div>
+            <form id="support-form" class="support-form" style="margin-top:0;">
+              <input type="hidden" name="_subject" value="New support enquiry — Roundtrip">
+              <div class="sf-row">
+                <div class="sf-field">
+                  <label for="sf-firstname">First name</label>
+                  <input type="text" id="sf-firstname" name="first_name" placeholder="First name" required data-fs-field>
+                  <span data-fs-error="first_name"></span>
+                </div>
+                <div class="sf-field">
+                  <label for="sf-lastname">Last name</label>
+                  <input type="text" id="sf-lastname" name="last_name" placeholder="Last name" required data-fs-field>
+                  <span data-fs-error="last_name"></span>
+                </div>
+              </div>
+              <div class="sf-field">
+                <label for="sf-email">Email address</label>
+                <input type="email" id="sf-email" name="email" placeholder="you@example.com" required data-fs-field>
+                <span data-fs-error="email"></span>
+              </div>
+              <div class="sf-field">
+                <label for="sf-phone">Phone <span class="sf-optional">(optional)</span></label>
+                <input type="tel" id="sf-phone" name="phone" placeholder="+61 400 000 000" data-fs-field>
+              </div>
+              <div class="sf-field">
+                <label for="sf-message">Message</label>
+                <textarea id="sf-message" name="message" placeholder="Describe your issue or question..." required data-fs-field></textarea>
+                <span data-fs-error="message"></span>
+              </div>
+              <div class="sf-row">
+                <div class="sf-field">
+                  <label for="sf-os">Operating system <span class="sf-optional">(optional)</span></label>
+                  <select id="sf-os" name="os" data-fs-field>
+                    <option value="">Select...</option>
+                    <option value="iOS">iOS (iPhone)</option>
+                    <option value="Android">Android</option>
+                  </select>
+                </div>
+                <div class="sf-field">
+                  <label for="sf-acct">Roundtrip account email <span class="sf-optional">(if different)</span></label>
+                  <input type="email" id="sf-acct" name="account_email" placeholder="account@example.com" data-fs-field>
+                </div>
+              </div>
+              <button type="submit" class="contact-btn" data-fs-submit-btn style="width:100%;margin-top:4px;text-align:center;justify-content:center;">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
+<main class="main">
   <!-- FAQs -->
   <div class="faq-divider" id="faqs">
     <h2>Frequently Asked Questions</h2>
@@ -572,7 +667,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-row">
-        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <img src="assets/app-icon.png" class="logo-mark" id="footer-logo" alt="Roundtrip" style="cursor:pointer;">
         <span class="logo-name">Roundtrip</span>
       </div>
       <p class="footer-tagline">Australia's official learner logbook platform. Built on research. Designed for safety.</p>
@@ -603,7 +698,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
     <div class="footer-nsw">
       <h4>🚗 NSW learner driver?</h4>
       <p>Find FAQs and support resources for the Roundtrip app in NSW.</p>
-      <a href="support.html">NSW support page →</a>
+      <a href="nsw.html">NSW support page →</a>
     </div>
   </div>
   <div class="footer-btm">
@@ -612,6 +707,27 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 </footer>
 
 <script>
+document.getElementById('footer-logo').addEventListener('click', function(){
+  const emojis = ['🚗','🚕','🚙','🏎️','🚓','🚑','🚒'];
+  for(let i = 0; i < 30; i++){
+    const el = document.createElement('span');
+    const goRight = Math.random() > 0.5;
+    const size  = Math.random() * 28 + 20;
+    const top   = Math.random() * 88;
+    const dur   = (Math.random() * 2 + 1.2).toFixed(2);
+    const delay = (Math.random() * 2.5).toFixed(2);
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.className = 'car-piece' + (goRight ? '' : ' going-left');
+    el.style.fontSize = `${size.toFixed(0)}px`;
+    el.style.top = `${top.toFixed(1)}vh`;
+    el.style.animationName = goRight ? 'car-right' : 'car-left';
+    el.style.animationDuration = `${dur}s`;
+    el.style.animationDelay = `${delay}s`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + parseFloat(delay)) * 1000 + 200);
+  }
+});
+
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => {
@@ -623,6 +739,13 @@ function closeMobileMenu() {
   mobileMenu.classList.remove('open');
 }
 </script>
+
+<script>
+// Support form — replace FORM_ID_HERE with your Formspree form ID
+window.formspree = window.formspree || function(){ (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#support-form', formId: 'mzdqjalw' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <script>
 function toggleFaq(btn) {

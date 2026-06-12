@@ -27,6 +27,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .nav-cta:hover{background:#2a2a2a !important;color:#fff !important;}
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;flex-shrink:0;}
 .hamburger span{display:block;width:22px;height:2px;background:#0a0a0a;border-radius:2px;transition:all .25s;}
+.hamburger span:nth-child(2){transition:opacity 0s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);border-radius:0;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);border-radius:0;}
@@ -35,6 +36,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop
 .mobile-menu a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:#0a0a0a;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.07);}
 .mobile-menu a:last-child{border-bottom:none;}
 .mobile-menu-nsw{color:#0a0a0a !important;font-size:14px !important;background:#f5c400;border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
+.mobile-menu-cta{background:#0a0a0a;color:#fff !important;border-radius:8px;padding:13px 12px !important;margin-top:4px;border-bottom:none !important;}
 
 .page-wrap{max-width:1120px;margin:0 auto;}
 .hero-inner-wrap{max-width:1120px;margin:0 auto;}
@@ -118,6 +120,10 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   .footer-nsw{max-width:100%;width:100%;}
   .footer-btm{flex-direction:column;align-items:flex-start;gap:6px;}
 }
+@keyframes car-right{from{left:-100px}to{left:110vw}}
+@keyframes car-left{from{right:-100px}to{right:110vw}}
+.car-piece{position:fixed;pointer-events:none;z-index:9999;line-height:1;display:inline-block;animation-timing-function:linear;animation-fill-mode:both;transform:scaleX(-1);}
+.car-piece.going-left{transform:scaleX(1);}
 </style>
 </head>
 <body>
@@ -137,7 +143,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   </ul>
   <div class="nav-right">
     <div class="nav-sep"></div>
-    <a href="support.html" class="nav-nsw">NSW Support</a>
+    <a href="nsw.html" class="nav-nsw">NSW Support</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -146,11 +152,11 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html#overview" onclick="closeMobileMenu()">Overview</a>
   <a href="index.html#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="index.html#platform" onclick="closeMobileMenu()">Government</a>
+  <a href="index.html#features" onclick="closeMobileMenu()">Government</a>
   <a href="index.html#migration" onclick="closeMobileMenu()">Migration</a>
   <a href="index.html#research" onclick="closeMobileMenu()">Research</a>
-  <a href="index.html#contact" onclick="closeMobileMenu()">Talk to us</a>
-  <a href="support.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
+  <a href="index.html#contact" class="mobile-menu-cta" onclick="closeMobileMenu()">Talk to us</a>
+  <a href="nsw.html" class="mobile-menu-nsw" onclick="closeMobileMenu()">NSW Support</a>
 </div>
 
 <div class="hero"><div class="page-wrap hero-inner-wrap">
@@ -508,7 +514,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-row">
-        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <img src="assets/app-icon.png" class="logo-mark" id="footer-logo" alt="Roundtrip" style="cursor:pointer;">
         <span class="logo-name">Roundtrip</span>
       </div>
       <p class="footer-tagline">Australia's official learner logbook app. Built on research. Designed for safety.</p>
@@ -539,7 +545,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
     <div class="footer-nsw">
       <h4>🚗 NSW learner driver?</h4>
       <p>Find FAQs, supervisor guides, and support resources for the Roundtrip app in NSW.</p>
-      <a href="support.html">NSW support page →</a>
+      <a href="nsw.html">NSW support page →</a>
     </div>
   </div>
   <div class="footer-btm">
@@ -548,6 +554,27 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 </footer>
 
 <script>
+document.getElementById('footer-logo').addEventListener('click', function(){
+  const emojis = ['🚗','🚕','🚙','🏎️','🚓','🚑','🚒'];
+  for(let i = 0; i < 30; i++){
+    const el = document.createElement('span');
+    const goRight = Math.random() > 0.5;
+    const size  = Math.random() * 28 + 20;
+    const top   = Math.random() * 88;
+    const dur   = (Math.random() * 2 + 1.2).toFixed(2);
+    const delay = (Math.random() * 2.5).toFixed(2);
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.className = 'car-piece' + (goRight ? '' : ' going-left');
+    el.style.fontSize = `${size.toFixed(0)}px`;
+    el.style.top = `${top.toFixed(1)}vh`;
+    el.style.animationName = goRight ? 'car-right' : 'car-left';
+    el.style.animationDuration = `${dur}s`;
+    el.style.animationDelay = `${delay}s`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + parseFloat(delay)) * 1000 + 200);
+  }
+});
+
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => {
