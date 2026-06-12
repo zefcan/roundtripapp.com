@@ -47,8 +47,8 @@ nav{
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid var(--bdr);
   padding:0 52px;height:60px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
+.nav-inner{max-width:1120px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;height:100%;}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
 .logo-mark{
   width:32px;height:32px;border-radius:8px;
@@ -83,8 +83,8 @@ nav{
 .hero{
   display:flex;flex-direction:row;align-items:center;
   justify-content:center;
-  padding:96px 52px 68px;gap:48px;
-  background:#fff;min-height:88vh;overflow-x:clip;
+  padding:60px 52px 48px;gap:48px;
+  background:#fff;min-height:auto;overflow-x:clip;
 }
 .hero-inner{
   display:flex;flex-direction:row;align-items:center;
@@ -199,7 +199,7 @@ nav{
 
 /* ── STATS BAR ── */
 .stats-bar{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(3,1fr);
   max-width:1120px;margin:0 auto;
 }
 .stat{
@@ -249,7 +249,7 @@ nav{
 .nsw-action-btn-outline:hover{background:rgba(0,0,0,0.05);}
 .nsw-stat{font-size:13px;color:var(--txt3);}
 .nsw-stat strong{color:var(--txt2);}
-.app-shot{position:absolute;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.18);border-radius:20px;border:8px solid var(--phone-border);}
+.app-shot{position:absolute;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.18);border-radius:20px;}
 .app-shot-h1{width:238px;left:4%;top:24px;transform:rotate(-6deg);z-index:1;}
 .app-shot-h2{width:238px;left:44%;top:8px;transform:rotate(4deg);z-index:2;}
 .app-shot-p1{width:224px;left:2%;top:20px;transform:rotate(-6deg);z-index:1;}
@@ -314,7 +314,7 @@ nav{
 .reviews-bg-stars{
   position:absolute;top:-30%;bottom:-30%;left:-10%;right:-10%;
   display:flex;flex-direction:column;justify-content:center;gap:10px;
-  pointer-events:none;user-select:none;opacity:.22;
+  pointer-events:none;user-select:none;opacity:.09;
   transform:rotate(-4deg);
 }
 .reviews-fade{
@@ -325,12 +325,12 @@ nav{
   display:flex;gap:28px;width:max-content;white-space:nowrap;will-change:transform;
   -webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);
 }
-.star-row--left  {animation:stars-left  65s linear infinite;}
-.star-row--right {animation:stars-right 80s linear infinite;}
-.star-row--left2 {animation:stars-left  55s linear infinite;}
-.star-row--right2{animation:stars-right 90s linear infinite;}
-.star-row--left3 {animation:stars-left  75s linear infinite;}
-.star-char{font-size:200px;color:#ffffff;flex-shrink:0;line-height:1;}
+.star-row--left  {animation:stars-left  130s linear infinite;}
+.star-row--right {animation:stars-right 160s linear infinite;}
+.star-row--left2 {animation:stars-left  110s linear infinite;}
+.star-row--right2{animation:stars-right 180s linear infinite;}
+.star-row--left3 {animation:stars-left  150s linear infinite;}
+.star-char{font-size:260px;color:#ffffff;flex-shrink:0;line-height:1;}
 @keyframes stars-left {from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes stars-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
@@ -431,12 +431,12 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
    RESPONSIVE
 ══════════════════════════════ */
 @media(max-width:860px){
-  nav{padding:0 20px;}
+  .nav-inner{padding:0 20px;}
   .nav-center{display:none;}
   .nav-right{display:none;}
   .hamburger{display:flex;}
 
-  .hero{padding:68px 24px 52px;min-height:auto;}
+  .hero{padding:44px 24px 36px;min-height:auto;}
   .hero-inner{flex-direction:column;gap:0;align-items:center;text-align:center;}
   .hero-content{max-width:100%;width:100%;text-align:center;}
   .hero-content .hero-sub{text-align:center;}
@@ -457,8 +457,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   .stats-bar{grid-template-columns:1fr 1fr;}
   .stat{border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);}
   .stat:nth-child(2){border-right:none;}
-  .stat:nth-child(3){border-bottom:none;}
-  .stat:nth-child(4){border-right:none;border-bottom:none;}
+  .stat:nth-child(3){border-right:none;border-bottom:none;}
 
   .sec{padding:68px 24px;}
   .plat-grid{grid-template-columns:1fr;gap:48px;}
@@ -517,25 +516,27 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 
 <!-- Nav -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
-    <span class="logo-name">Roundtrip</span>
-  </a>
-  <ul class="nav-center">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#features">Government</a></li>
-    <li><a href="#migration">Migration</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#contact" class="nav-cta">Talk to us</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="nav-sep"></div>
-    <a href="nsw.html" class="nav-nsw">NSW Support</a>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+      <span class="logo-name">Roundtrip</span>
+    </a>
+    <ul class="nav-center">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#features">Government</a></li>
+      <li><a href="#migration">Migration</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact" class="nav-cta">Talk to us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-sep"></div>
+      <a href="nsw.html" class="nav-nsw">NSW Support</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="#overview" onclick="closeMobileMenu()">Overview</a>
@@ -571,7 +572,6 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   <div class="stat fade-up"><span class="stat-val">10M+</span><span class="stat-lbl">Trips recorded</span></div>
   <div class="stat fade-up" style="transition-delay:.1s"><span class="stat-val">4.7★</span><span class="stat-lbl">iOS App Store rating</span></div>
   <div class="stat fade-up" style="transition-delay:.2s"><span class="stat-val">1,200+</span><span class="stat-lbl">App reviews</span></div>
-  <div class="stat fade-up" style="transition-delay:.3s"><span class="stat-val">2</span><span class="stat-lbl">State deployments</span></div>
   </div>
 </div>
 
