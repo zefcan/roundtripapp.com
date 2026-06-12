@@ -62,7 +62,7 @@ nav{
   text-decoration:none;color:var(--txt2);font-size:14px;font-weight:500;
   padding:6px 13px;border-radius:8px;transition:background .15s,color .15s;
 }
-.nav-center a:hover{background:var(--bg2);color:var(--txt);}
+.nav-center a:hover{background:transparent;color:var(--txt);}
 .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
 .nav-sep{width:1px;height:20px;background:var(--bdr);margin:0 4px;}
 .nav-nsw{
@@ -234,7 +234,7 @@ nav{
 .plat-phones-wrap{position:relative;height:520px;}
 
 /* ── NSW LEARNER SECTION ── */
-.nsw-section{background:#fffbeb;border-top:3px solid var(--acc);border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
+.nsw-section{background:#fffbeb;border-bottom:1px solid rgba(245,196,0,.25);padding:72px 52px;text-align:center;}
 .nsw-inner-centered{max-width:640px;margin:0 auto;}
 .nsw-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:var(--txt);letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
 .nsw-sub{font-size:16px;color:var(--txt2);line-height:1.7;margin-bottom:28px;}
@@ -249,7 +249,7 @@ nav{
 .nsw-action-btn-outline:hover{background:rgba(0,0,0,0.05);}
 .nsw-stat{font-size:13px;color:var(--txt3);}
 .nsw-stat strong{color:var(--txt2);}
-.app-shot{position:absolute;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.18);}
+.app-shot{position:absolute;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.18);border-radius:20px;border:8px solid var(--phone-border);}
 .app-shot-h1{width:238px;left:4%;top:24px;transform:rotate(-6deg);z-index:1;}
 .app-shot-h2{width:238px;left:44%;top:8px;transform:rotate(4deg);z-index:2;}
 .app-shot-p1{width:224px;left:2%;top:20px;transform:rotate(-6deg);z-index:1;}
@@ -301,7 +301,7 @@ nav{
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .rev-card{background:var(--bg);border-radius:20px;padding:26px;box-shadow:var(--card-shadow);border:1px solid var(--bdr);}
 .rev-stars{color:var(--acc);font-size:27px;margin-bottom:10px;letter-spacing:2px;}
-.rev-title{font-weight:700;font-size:14px;color:var(--txt);margin-bottom:8px;letter-spacing:-0.2px;}
+.rev-title{font-weight:700;font-size:16px;color:var(--txt);margin-bottom:8px;letter-spacing:-0.3px;}
 .rev-text{font-size:13.5px;color:var(--txt2);line-height:1.65;margin-bottom:16px;}
 .rev-author{font-size:11.5px;color:var(--txt3);font-weight:500;}
 
@@ -312,11 +312,10 @@ nav{
   pointer-events:none;user-select:none;opacity:.22;
   transform:rotate(-4deg);
 }
-.reviews-bg-stars::before,.reviews-bg-stars::after{
-  content:'';position:absolute;top:0;bottom:0;width:25%;z-index:2;pointer-events:none;
+.reviews-fade{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to right,#f5c400 0%,transparent 25%,transparent 75%,#f5c400 100%);
 }
-.reviews-bg-stars::before{left:0;background:linear-gradient(to right,#f5c400 30%,transparent);}
-.reviews-bg-stars::after{right:0;background:linear-gradient(to left,#f5c400 30%,transparent);}
 .star-row{
   display:flex;gap:28px;width:max-content;white-space:nowrap;will-change:transform;
   -webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);
@@ -341,7 +340,7 @@ nav{
 /* ── MIGRATION ── */
 .mig-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px;}
 .mig-card{border-radius:20px;overflow:hidden;background:var(--bg);box-shadow:var(--card-shadow);border:1px solid var(--bdr);}
-.mig-card-img{width:100%;height:220px;object-fit:cover;display:block;}
+.mig-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid rgba(0,0,0,0.18);}
 .mig-card-body{padding:28px 36px 36px;}
 .mig-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc2);margin-bottom:14px;}
 .mig-title{font-size:21px;font-weight:700;color:var(--txt);margin-bottom:12px;letter-spacing:-0.5px;}
@@ -356,6 +355,9 @@ nav{
 .rs-card{background:var(--bg2);border-radius:20px;padding:26px;border:1px solid var(--bdr);}
 .rs-val{font-size:36px;font-weight:700;color:var(--txt);display:block;margin-bottom:8px;line-height:1;letter-spacing:-1.5px;}
 .rs-lbl{font-size:13px;color:var(--txt2);line-height:1.5;}
+.rs-pubs-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txt3);margin-bottom:14px;}
+.rs-pubs-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.rs-pubs-list li{font-size:13.5px;color:var(--txt2);line-height:1.65;}
 
 /* ── CTA ── */
 .cta-sec{background:var(--acc);padding:112px 52px;text-align:center;}
@@ -385,6 +387,16 @@ nav{
 }
 .contact-success[style*="none"]{display:none;}
 @media(max-width:600px){.cf-row{grid-template-columns:1fr;}}
+
+/* ── SCROLL ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ── CAR EASTER EGG ── */
+@keyframes car-right{from{left:-100px}to{left:110vw}}
+@keyframes car-left{from{right:-100px}to{right:110vw}}
+.car-piece{position:fixed;pointer-events:none;z-index:9999;line-height:1;display:inline-block;animation-timing-function:linear;animation-fill-mode:both;transform:scaleX(-1);}
+.car-piece.going-left{transform:scaleX(1);}
 
 /* ── FOOTER ── */
 footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--bdr);}
@@ -507,7 +519,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   <ul class="nav-center">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#features">For Government</a></li>
+    <li><a href="#features">Government</a></li>
     <li><a href="#migration">Migration</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#contact" class="nav-cta">Talk to us</a></li>
@@ -523,7 +535,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <div class="mobile-menu" id="mobile-menu">
   <a href="#overview" onclick="closeMobileMenu()">Overview</a>
   <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="#platform" onclick="closeMobileMenu()">For Government</a>
+  <a href="#platform" onclick="closeMobileMenu()">Government</a>
   <a href="#migration" onclick="closeMobileMenu()">Migration</a>
   <a href="#research" onclick="closeMobileMenu()">Research</a>
   <a href="#contact" onclick="closeMobileMenu()">Talk to us</a>
@@ -542,8 +554,8 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   </div>
 
   <div class="hero-phones-wrap">
-    <img src="assets/screenshots/logbook-03.png" class="app-shot app-shot-h1" alt="Roundtrip trips list">
-    <img src="assets/screenshots/logbook-04.png" class="app-shot app-shot-h2" alt="Roundtrip logbook view">
+    <img src="assets/screenshots/logbook-01.png" class="app-shot app-shot-h1" alt="Roundtrip trips list">
+    <img src="assets/screenshots/logbook-02.png" class="app-shot app-shot-h2" alt="Roundtrip logbook view">
   </div>
   </div><!-- /hero-inner -->
 </section>
@@ -551,19 +563,19 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Stats bar -->
 <div style="background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);">
   <div class="stats-bar">
-  <div class="stat"><span class="stat-val">10M+</span><span class="stat-lbl">Trips recorded</span></div>
-  <div class="stat"><span class="stat-val">4.7★</span><span class="stat-lbl">iOS App Store rating</span></div>
-  <div class="stat"><span class="stat-val">1,200+</span><span class="stat-lbl">App reviews</span></div>
-  <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">State deployments</span></div>
+  <div class="stat fade-up"><span class="stat-val">10M+</span><span class="stat-lbl">Trips recorded</span></div>
+  <div class="stat fade-up" style="transition-delay:.1s"><span class="stat-val">4.7★</span><span class="stat-lbl">iOS App Store rating</span></div>
+  <div class="stat fade-up" style="transition-delay:.2s"><span class="stat-val">1,200+</span><span class="stat-lbl">App reviews</span></div>
+  <div class="stat fade-up" style="transition-delay:.3s"><span class="stat-val">2</span><span class="stat-lbl">State deployments</span></div>
   </div>
 </div>
 
 <!-- NSW Learner Section -->
 <section class="nsw-section">
   <div class="nsw-inner-centered">
-    <h2 class="nsw-h">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
-    <p class="nsw-sub">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
-    <div class="store-btns">
+    <h2 class="nsw-h fade-up">Are you a NSW Learner Driver?<br>Download Roundtrip for NSW for free.</h2>
+    <p class="nsw-sub fade-up" style="transition-delay:.1s">Roundtrip is the <strong>only officially recognised app</strong> that lets you record your supervised driving practice as a NSW learner driver. Available free on iOS and Android.</p>
+    <div class="store-btns fade-up" style="transition-delay:.2s">
       <a href="https://apps.apple.com/au/app/roundtrip-nsw-learner-logbook/id1171287648" target="_blank" class="store-img-btn">
         <img src="assets/badge-app-store.svg" alt="Download on the App Store" height="44">
       </a>
@@ -581,39 +593,39 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Platform section -->
 <section class="sec" id="overview">
   <div class="sec-inner centered">
-    <h2 class="sec-h">More than a logbook.<br>A road safety tool.</h2>
-    <p class="sec-sub">The Graduated Driver Licensing program exists to create safer drivers. Our app was built with that mission at its core, not as an afterthought.</p>
+    <h2 class="sec-h fade-up">More than a logbook.<br>A road safety tool.</h2>
+    <p class="sec-sub fade-up" style="transition-delay:.1s">The Graduated Driver Licensing program exists to create safer drivers. Our app was built with that mission at its core, not as an afterthought.</p>
     <div class="plat-grid">
       <div class="plat-features">
-        <div class="pf">
+        <div class="pf fade-up">
           <div class="pf-icon">📖</div>
           <div>
             <div class="pf-title">Fully Automatic Trip Recording</div>
             <div class="pf-desc">The app automatically captures start and end time, start and end location, weather conditions, and whether the drive took place during the day or night, so learners can focus on driving, not logging.</div>
           </div>
         </div>
-        <div class="pf">
+        <div class="pf fade-up" style="transition-delay:.1s">
           <div class="pf-icon">🎯</div>
           <div>
             <div class="pf-title">Smart Practice Suggestions</div>
             <div class="pf-desc">Analyses each learner's trip history to identify gaps in driving (e.g., night hours, wet conditions, and unsealed roads) then prompts learners to practice underdeveloped skills before their test.</div>
           </div>
         </div>
-        <div class="pf">
+        <div class="pf fade-up" style="transition-delay:.2s">
           <div class="pf-icon">📊</div>
           <div>
             <div class="pf-title">Driving Summary & Insights</div>
             <div class="pf-desc">A personalised breakdown of driving conditions, road types, and times, giving learners and supervisors a clear picture of experience breadth.</div>
           </div>
         </div>
-        <div class="pf">
+        <div class="pf fade-up" style="transition-delay:.3s">
           <div class="pf-icon">🎓</div>
           <div>
             <div class="pf-title">Structured Learning Goals</div>
             <div class="pf-desc">Progressive learning levels guide learners from foundational skills through to advanced experience, tied to real driving competencies with text, images and video supported.</div>
           </div>
         </div>
-        <div class="pf">
+        <div class="pf fade-up" style="transition-delay:.4s">
           <div class="pf-icon">📢</div>
           <div>
             <div class="pf-title">Government Messaging Campaigns</div>
@@ -623,8 +635,8 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
       </div>
 
       <div class="plat-phones-wrap">
-        <img src="assets/screenshots/logbook-02.png" class="app-shot app-shot-p1" alt="Roundtrip Learning Centre">
-        <img src="assets/screenshots/logbook-01.png" class="app-shot app-shot-p2" alt="Roundtrip recording a trip">
+        <img src="assets/screenshots/logbook-03.png" class="app-shot app-shot-p1" alt="Roundtrip Learning Centre">
+        <img src="assets/screenshots/logbook-04.png" class="app-shot app-shot-p2" alt="Roundtrip recording a trip">
       </div>
     </div>
   </div>
@@ -633,46 +645,47 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Reviews -->
 <section class="sec sec-alt" id="reviews" style="position:relative;overflow:hidden;">
   <div class="reviews-bg-stars" id="reviews-bg-stars"></div>
-  <div class="sec-inner" style="position:relative;z-index:1;">
+  <div class="reviews-fade"></div>
+  <div class="sec-inner" style="position:relative;z-index:3;">
     <div style="margin-bottom:48px;text-align:center;">
-      <h2 class="sec-h">Australia's highest-rated<br>official logbook app.</h2>
+      <h2 class="sec-h fade-up">Australia's highest-rated<br>official logbook app.</h2>
       <div class="rating-badge" style="margin-top:24px;display:inline-flex;">
         <div><div class="r-score">4.7<span style="font-weight:700;">/5</span></div><div class="r-stars">★★★★★</div></div>
         <div><div class="r-meta">1,200+ reviews</div><div class="r-meta">iOS App Store</div></div>
       </div>
     </div>
     <div class="reviews-grid">
-      <div class="rev-card">
+      <div class="rev-card fade-up">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">The. Best. Learner. Logbook.</div>
         <div class="rev-text">Roundtrip is the best learner logbook for NSW Learner Drivers. The whole process is elegant and simple to use. Highly recommend — don't even think about using a paper logbook. This is perfect!</div>
         <div class="rev-author">ant-lope · Jan 2019</div>
       </div>
-      <div class="rev-card">
+      <div class="rev-card fade-up" style="transition-delay:.1s">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">Genuinely the best app ever created</div>
         <div class="rev-text">Makes every aspect of filling out a logbook SO easy. Takes 20 seconds to log a drive and allows you to tap and go before driving. Includes options to log Safer Drivers Course and the 3 for 1 lesson hours. Made the process a million times less stressful.</div>
         <div class="rev-author">jeorgaret · Jan 2025</div>
       </div>
-      <div class="rev-card">
+      <div class="rev-card fade-up" style="transition-delay:.2s">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">Learning goals and safer driving</div>
         <div class="rev-text">It breaks down your day and night hours, and has learning goals you need to pass to help yourself become a better and safer driver. Overall I'm very happy and satisfied with this app.</div>
         <div class="rev-author">MolRobMc · Jul 2023</div>
       </div>
-      <div class="rev-card">
+      <div class="rev-card fade-up">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">Excellent app and support</div>
         <div class="rev-text">I've been using the app for a year for my daughter getting her learners permit. Absolutely brilliant, super easy to use, and when needed — very rare — amazing support. So much easier than a manual logbook. Highly highly recommend.</div>
         <div class="rev-author">Derek M1234 · Sep 2024</div>
       </div>
-      <div class="rev-card">
+      <div class="rev-card fade-up" style="transition-delay:.1s">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">Great app, great support</div>
         <div class="rev-text">It was fairly easy to transfer hours from our old logbook. Very simple and easy to use. The 3:1 bonus is automatically recognised, and when I sign off I can see the current logbook total so I know she's on track. Support could not have been more helpful.</div>
         <div class="rev-author">The AB Heroes · May 2019</div>
       </div>
-      <div class="rev-card">
+      <div class="rev-card fade-up" style="transition-delay:.2s">
         <div class="rev-stars">★★★★★</div>
         <div class="rev-title">Why would you bother with a paper version?</div>
         <div class="rev-text">Such a great idea. Works perfectly. Great that we can share the account across multiple devices to share the driving hours amongst the family. Had a login issue and it was resolved by email support within 90 seconds.</div>
@@ -685,35 +698,35 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Full service -->
 <section class="sec" id="features">
   <div class="sec-inner centered">
-    <h2 class="sec-h">Everything your jurisdiction needs.</h2>
+    <h2 class="sec-h fade-up">Everything your jurisdiction needs.</h2>
     <p class="sec-sub">We handle the full stack, from white-labelled native apps to front-line learner support, so your team can focus on policy, not managing the app. We've already replaced legacy systems in NSW and Tasmania and can do the same for your jurisdiction.</p>
     <div class="svc-grid">
-      <div class="svc-card">
+      <div class="svc-card fade-up">
         <div class="svc-icon">📱</div>
         <div class="svc-name">iOS + Android Apps</div>
         <div class="svc-desc">Customised, white-labelled native apps tailored to your state's GDL requirements and brand identity.</div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card fade-up" style="transition-delay:.1s">
         <div class="svc-icon">🎧</div>
         <div class="svc-name">Customer Support</div>
         <div class="svc-desc">Front-line learner and supervisor support via local phone and email, including extended hours.</div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card fade-up" style="transition-delay:.2s">
         <div class="svc-icon">🔒</div>
         <div class="svc-name">Secure Australian Hosting</div>
         <div class="svc-desc">All data hosted securely in Australia, meeting government data sovereignty and privacy requirements.</div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card fade-up">
         <div class="svc-icon">🔄</div>
         <div class="svc-name">Regular Updates</div>
         <div class="svc-desc">Ongoing monitoring, bug fixes, and enhancements keep the app modern, compliant, and secure.</div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card fade-up" style="transition-delay:.1s">
         <div class="svc-icon">📈</div>
         <div class="svc-name">Data Reporting</div>
         <div class="svc-desc">Monthly analytics and insights in government-ready formats, including learner trends, trip data, and engagement metrics.</div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card fade-up" style="transition-delay:.2s">
         <div class="svc-icon">✨</div>
         <div class="svc-name">New Features</div>
         <div class="svc-desc">Access to the national feature roadmap as it rolls out, including updated learning centre, driver quizzes, and safer driver scores.</div>
@@ -728,10 +741,10 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Migration -->
 <section class="sec sec-alt" id="migration">
   <div class="sec-inner centered">
-    <h2 class="sec-h">Proven migration for<br>existing platforms.</h2>
+    <h2 class="sec-h fade-up">Proven migration for<br>existing platforms.</h2>
     <p class="sec-sub">Whether replacing a single legacy system or consolidating multiple third-party apps, we've delivered seamless migrations with zero disruption to learners, supervisors, or test centres.</p>
     <div class="mig-grid">
-      <div class="mig-card">
+      <div class="mig-card fade-up">
         <img src="assets/migration/nsw.jpg" alt="NSW migration case study" class="mig-card-img">
         <div class="mig-card-body">
           <div class="mig-eyebrow">Case Study · NSW</div>
@@ -744,7 +757,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
           </div>
         </div>
       </div>
-      <div class="mig-card">
+      <div class="mig-card fade-up" style="transition-delay:.1s">
         <img src="assets/migration/tasmania.jpg" alt="Tasmania migration case study" class="mig-card-img">
         <div class="mig-card-body">
           <div class="mig-eyebrow">Case Study · Tasmania</div>
@@ -764,7 +777,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- Research -->
 <section class="sec" id="research">
   <div class="sec-inner centered">
-    <h2 class="sec-h">Over a decade of research<br>built into every feature.</h2>
+    <h2 class="sec-h fade-up">Over a decade of research<br>built into every feature.</h2>
     <div class="research-grid">
       <div>
         <p class="rs-body">Roundtrip began as a PhD research project at Queensland University of Technology, exploring how gamification and behavioural design can promote safer driving in young people.</p>
@@ -772,8 +785,15 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
         <p class="rs-body">Research insights directly inform app features, from structured driving summaries to smart practice suggestions that identify gaps in a learner's experience, built into every logbook.</p>
       </div>
       <div class="rs-stats">
-        <div class="rs-card"><span class="rs-val">10+</span><span class="rs-lbl">Years of research informing app features</span></div>
-        <div class="rs-card"><span class="rs-val">6+</span><span class="rs-lbl">Peer-reviewed road safety publications</span></div>
+        <div class="rs-card fade-up"><span class="rs-val">10+</span><span class="rs-lbl">Years of research informing app features</span></div>
+        <div class="rs-card fade-up" style="transition-delay:.1s"><span class="rs-val">6+</span><span class="rs-lbl">Peer-reviewed road safety publications</span></div>
+        <div class="rs-card fade-up" style="grid-column:1/-1;transition-delay:.2s;text-align:left;">
+          <div class="rs-pubs-title">Selected Publications</div>
+          <ul class="rs-pubs-list">
+            <li><strong>The driving exposure of learner drivers in NSW: Insight from a smartphone app</strong> — <em>Scott-Parker, Fitz-Walter &amp; Ti (2018), Australasian Road Safety Conference</em></li>
+            <li><strong>Driven to drive? Gamification and learner driver behaviour</strong> — <em>Fitz-Walter, Johnson, Wyeth, Tjondronegoro &amp; Scott-Parker (2017), Computers in Human Behavior, 71, 586–595</em></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -782,8 +802,8 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
 <!-- CTA -->
 <section class="cta-sec" id="contact">
   <div class="sec-inner">
-    <h2 class="sec-h">Ready to bring Roundtrip<br>to your jurisdiction?</h2>
-    <p class="sec-sub">If your state or territory is evaluating learner logbook solutions, we'd love to talk about what a partnership could look like.</p>
+    <h2 class="sec-h fade-up">Ready to bring Roundtrip<br>to your jurisdiction?</h2>
+    <p class="sec-sub fade-up" style="transition-delay:.1s">If your state or territory is evaluating learner logbook solutions, we'd love to talk about what a partnership could look like.</p>
 
     <div data-fs-success class="contact-success" style="display:none;">Thanks! We'll be in touch soon.</div>
 
@@ -828,7 +848,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-row">
-        <img src="assets/app-icon.png" class="logo-mark" alt="Roundtrip">
+        <img src="assets/app-icon.png" class="logo-mark" id="footer-logo" alt="Roundtrip" style="cursor:pointer;">
         <span class="logo-name">Roundtrip</span>
       </div>
       <p class="footer-tagline">Australia's official learner logbook app. Built on research. Designed for safety.</p>
@@ -842,7 +862,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
       <ul>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#features">For Government</a></li>
+        <li><a href="#features">Government</a></li>
         <li><a href="#migration">Migration</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#contact">Talk to us</a></li>
@@ -851,7 +871,7 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="https://www.eatmorepixels.com.au">About Eat More Pixels</a></li>
+        <li><a href="https://www.eatmorepixels.com.au">Eat More Pixels</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
       </ul>
@@ -873,10 +893,14 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   const container = document.getElementById('reviews-bg-stars');
   const rows = [
     {cls:'star-row--right',  count:36},
+    {cls:'star-row--left2',  count:36},
+    {cls:'star-row--right',  count:36},
     {cls:'star-row--left',   count:36},
     {cls:'star-row--right2', count:36},
     {cls:'star-row--left2',  count:36},
     {cls:'star-row--left3',  count:36},
+    {cls:'star-row--right2', count:36},
+    {cls:'star-row--left',   count:36},
   ];
   rows.forEach(({cls, count}) => {
     const row = document.createElement('div');
@@ -893,9 +917,41 @@ footer{background:var(--bg2);padding:60px 52px 36px;border-top:1px solid var(--b
   });
 })();
 
+// Car easter egg
+document.getElementById('footer-logo').addEventListener('click', function(){
+  const emojis = ['🚗','🚕','🚙','🏎️','🚓','🚑','🚒'];
+  for(let i = 0; i < 30; i++){
+    const el = document.createElement('span');
+    const goRight = Math.random() > 0.5;
+    const size  = Math.random() * 28 + 20;
+    const top   = Math.random() * 88;
+    const dur   = (Math.random() * 2 + 1.2).toFixed(2);
+    const delay = (Math.random() * 2.5).toFixed(2);
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.className = 'car-piece' + (goRight ? '' : ' going-left');
+    el.style.fontSize = `${size.toFixed(0)}px`;
+    el.style.top = `${top.toFixed(1)}vh`;
+    el.style.animationName = goRight ? 'car-right' : 'car-left';
+    el.style.animationDuration = `${dur}s`;
+    el.style.animationDelay = `${delay}s`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), (parseFloat(dur) + parseFloat(delay)) * 1000 + 200);
+  }
+});
+
 // Formspree
 window.formspree = window.formspree || function(){ (formspree.q = formspree.q || []).push(arguments); };
 formspree('initForm', { formElement: '#contact-form', formId: 'mjgdawop' });
+
+// Scroll fade-in
+(function(){
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
+})();
 
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
